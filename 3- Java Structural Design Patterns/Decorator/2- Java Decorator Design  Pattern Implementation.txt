@@ -1,0 +1,35 @@
+											Implimentation Decorator Pattern Overview
+
+	- The decorator pattern will create a set of decorator classes that are used to wrap concrete
+		components
+		- provides additional functionality keeping class methods signature code intact
+		
+	- Decorator classes mirror the type of the components they decorate.
+		- They are the same type as th components they decorate
+		
+	- Decorators change the behavior of their components by adding new functionality before
+		and/or after methods calls to the components
+		
+	- You can wrap a component with any number of decorators
+	
+	- Decorators are typically transparent to client of the component
+		- Unless the client is relying on the component's concrete type
+		
+				Participants
+
+- Components
+	- Defines the interface for objects
+	- Can have responsibilities added to them dynamicaly
+
+- ConcreteComponent
+	- Defines an object to which additional responsibilities can be attached
+
+- Decorator
+	- Maintains a refrence to a component object
+	- Defines an interface that conforms to component's interface
+
+- ConcreteDecorator
+	- Adds responsibilities to the component
+
+- The Decorator forwards requests to its Component object
+	- May optionally perform addtional operations before and after forwarding the request

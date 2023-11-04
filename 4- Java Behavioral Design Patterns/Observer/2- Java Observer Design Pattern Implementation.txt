@@ -1,0 +1,83 @@
+											  Section 27
+										Observer Design Pattern 
+		
+		*Implementation Overview*
+		
+	- To understand observer pattern implimentation, first you need to understand the subject and observer objects
+	
+	- The relationship between subject and observer can easily be understood as an analogy to magazine subscription
+	
+	- A magazine publisher (subject) is in the business and publishers magazine (data)
+	
+	- If you (user of data/observer) are interested in the magazine you subscribe (register), and if a new edition is published 
+		it gets delivered to you
+	
+	- If you subscribe(unresgister you stop getting new editions
+	
+	- Publisher doesn't know who you are and how you use the magazine,
+		it just delivers it to you because you are a subscriber (loose coupling)
+	
+	- Observer and Subject are interfaces or abstract classes
+	
+	
+		*Participants*
+	
+	- Subject
+		
+		- Knows its observers (contains a list of observers to notify)
+		- Any number of Observer objects may obsere a subject
+		- Provides an interface for attaching and detaching Observer objects
+			- Methods allowing observers to register and unregister themselves
+			- Also contains a method to notify all the observers of any change
+	
+	- Observer
+		
+		- Defines an updating interface for objects that should be notified of changes in a subject
+		- All potential observers need to implement this interface
+	
+	- ConcreteSubject
+		
+		- Stores state of interest to ConcreteObserver objects
+		- Sends a notification to its observers when its state changes
+	
+	- ConcreteObserver
+		
+		- Maintains a reference to a ConcreteSubject object
+		- Stores state that should stay consistent with the subject's 
+		- Implements the Observer updating interface to keep its state consistent with the subject'should
+	
+	
+			*Sequence Diagram*
+	
+	- The ConcreteSubject notifies its observers whenever a change occurs that could make its observers state inconsistent
+		with its own
+	
+	- After being informed of a change in the concrete subject, a ConcreteObserver object may query the subject for information
+		- ConcreteObserver uses this information to reconcile its state with that of the subject
+	
+	- The Observer object that initiates the change request postpones its update until it gets a notification from 
+		the subject
+			- Notify is always called by the subject
+	
+			*Advantages of this implementation*
+	
+	- The Observer Pattern provides an object design where subjects and observers are loosely coupled
+	
+	- The only thing the subject knows about an observer is that it implements certain interface ( The Observer interface)
+		- Doesn't need to know the concrete class of the observer, what it does, or anything else about it
+	
+	- We can add new observers at any time
+		
+		- The only thing the subject depends on a list of objects tht implement the Observer interface
+		- We can replace any observer at runtime with another observer an dthe subject will keep purring along
+	
+	- We need to modify the subject to add new types of observers
+		
+		- All we have to do is implement the Observer interface in the new class and register as an observer 
+			- Subject doesn't care, it will deliver notifications to any object that implements the Observer interface
+	
+	- We can reuse subjects or observers independently of each other
+		- If we have another use for asubject or an observer, we can easily reuse them because the two are not tighly coupled
+	
+	- Changes to either the subject or an observer will not affect the other
+		- As long as the objects still meet their obligations to implement the subject or observer 

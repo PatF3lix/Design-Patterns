@@ -1,0 +1,107 @@
+											  Section 33
+										Model View Controller
+			*Overview*
+	
+	- There are some patterns that we did not cover that i would like to talk about at a high level
+	
+	- Some are used specifically with J2EE (web based enterprise application)
+	
+	- Lets take a look at the following:
+		- MVC - Model View Controller (more of an architectural Pattern)
+		- Null Objects
+	
+		- J2EE patterns
+			- Business Delegate Pattern
+			- Composite Entity Pattern
+			- Data Access Object
+			- Front Controller
+			- Intercepting Filter
+			- Service Locator
+			- Transfer Object
+	
+			*Model-View-Controller*
+	
+	- Specifies that an application consist of a data model, presentation information, and control information
+		- Requires that each of these be separated into different objects
+		- A popular way of organizing your code
+	
+	- MVC is short for Model, View, and Controller
+	
+	- MVC is more of an architectural pattern, but not for a complete application
+	
+	- Each section of your code's core functions has a purpose, and those purposes are diffferent
+	
+		- Some of your code holds the data of your app, some of your code makes your app look nice, and some of your code
+			controls how your app functions
+			
+		- Makes thinking about your app, revisiting your app, and sharing your app with others much easier and cleaner
+		- Single responsibility principle and separation of concerns
+	
+	- MVC is helpful when planning your app
+		- It gives you an outline of how your ideas should be organized into actual code
+	
+	- Thinking about how code interacts with other code is a significant part of programming
+	
+	- The Model contains only the pure application data (database data)
+		- Contains no logic describing how to present the data to a user
+	
+	- The View presents the model's data to the user
+		- Knows how to access the model's data
+		- Doesn't know what this data means or what the user can do to manipulate it
+	
+	- The Controller exists between the view and the model
+		- Listens to events triggered by the view ( or another external source) and executes
+			the appropriate reaction to these events
+	
+			- The reaction is usually to call a method on the model
+			- The result of this action is then automatically reflected in the view
+	
+	Real-world Example
+			
+	- Think about what happens when you prepare a Thanksgiving dinner
+	
+	- You have a fridge full of food, which represents the Model
+		- The fridge (Model) contains the raw materials we will use to make dinner 
+	
+	- You also probably have a recipe or two
+	
+	- A recipe is like the Controller of Tanksgiving dinner
+		- Dictates which stuff in the fridge you will take out
+		- How you will put it together, and how long you need to cook it
+	
+	- Then, you have table-settings, silverware, etc...,
+		- What your hungry friends and family use to eat dinner
+	
+	- Table-top items are like the View	
+		- Let your guests interact with your Model and controller's creation
+	
+	Computer Example
+	
+	- Let's imagine you are creating a To-do list app
+		- Will let users create taks and organize them into lists
+	
+	- The Model in a todo app might define what a "task" is and that a "list" is a collection of task
+	
+	- The view code will define what the todos and lists looks like, visually
+		- Tasks could have large font, or be a certain color
+	
+	- The controller could define how a user adds a task, or marks another as complete
+		- Connects the View add button to the Model
+		- When you click "add task", the Model adds a new task
+	
+			*Advantages of MVC*
+	
+	- Multiple developers can work simultaneously on the model, controller and views
+	
+	- Enables logical grouping of related actions on a controller together
+		- Views for specific model are also grouped together
+		- Separation of concerns
+	
+	- Models can have multiple views
+	
+	- Faster development process
+		- supports rapid and parallel development
+	
+	- Modification doesn't affect the entire model
+		- Model part does not depend on the views part
+		- Any changes in the Model will not affect the entire architecture

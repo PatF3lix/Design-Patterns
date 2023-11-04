@@ -1,0 +1,59 @@
+											  Section 28
+										State Design Pattern Implementation
+		
+		*Participants*
+		
+	- Context
+		
+		- Defines the interface of interest to clients
+		- maintains an instance of a ConcreteState subclass that defines the current state
+		
+	- State
+		
+		- Defines an interface for encapsulating the behavior associated with a particular state of the Context
+	
+	- ConcreteState subclasses
+	
+		- Each subclass implements a behavior associated with a state of context
+	
+		*Workflow*
+	
+	- The context delegates state-specific requests to the current ConcreteState object
+		- Has a reference to the concrete state object
+	
+	- A context may pass itself as an argument to the State object handling the request
+		- lets the State object access the context if necessary
+	
+	- Clients can configure a context with State objects
+		- Once a context is configured, its clients don't have to deal with the State objects directly
+	
+	- Either Context or the ConcreteState subclasses can decide which state takes priority over another and under what circumstances
+	
+	- As mentioned previously, this pattern puts all behavior associated with a particular state into one object
+		- new states and transitions can be added easily by defining new subclasses
+	
+	- Large conditional statements are undesirable
+		- Monolithic and tend to make the code less explicit, which in turn makes them difficult to modify and extend
+		- State pattern offers a better way to structure state-specific code
+		- Logic that determines the state transitions doesn't reside in monolith if or switch statements but instead
+			is partionned between the state subclasses 
+	
+	- Makes state transitions explicit by introducing separate objects for different states
+	
+	- State Objects can protect the Context from inconsistent internal states
+		- State transitions are atomic from the context's perspective
+			- Happen by rebinding one variable (the Context's State object variable)
+	
+	- State objects can be shared
+	
+			*Summary*
+	
+	- Allows an object to have many different bahaviors that are based on its internal state
+	
+	- Represents state as an object
+	
+	- The context gets its behavior by delegating to the current state object it is composed with
+	
+	- By encapsulating each state into a class, we localize any changes that will need to be made
+	
+	- State transitions can be controlled by the State classes or by the Context classes

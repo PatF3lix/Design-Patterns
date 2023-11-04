@@ -1,0 +1,96 @@
+											  Section 29
+										Strategy Design Pattern 
+		
+			*Overview*
+		
+	- The strategy design pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable
+		- Lets the algorithm vary independently from client to client
+		- Conceptually, all of these algorithms do the same things
+			- Just have different implimentations
+	
+	- We can select the behavior of an algorithm dynamically at runtime
+		- Can help us to avoid dealing with complex algorithm-specific data structures
+		- We let the client application pass the algorithm to be used as parameter
+	
+	- Allows us to create objects which represents various strategies and a context object whose 
+		behavior varies as per its strategy object
+			- The strategy object changes the exceuting algorithm of the context object
+	
+	Examples
+		
+	- In a soccer match, strategies will differ 
+		- If Team A is leading Team by a score of 1-0
+		- Instead of attacking, Team A becomes defensive
+		- Team B goes for an all-out attack to score
+	
+	- We can think of two dedicated storage devices
+		- When one device becomes "full", we start storing the data in the second available device
+		- A runtime check is necessary before the storing of data, and based on the situation, we will proceed
+	
+	- The Collections.sort() method from the Java API uses the strategy pattern
+		- Takes a Comparator parameter
+		- Based on the different implementations of Comparator interfaces
+			- The objects are getting sorted in different ways
+	
+	- Suppose we have different algorithms for breaking a stream of text into lines
+	
+	- Hard-wiring all such algorithm into the classes that require them isn't desirable for several reasons
+		- Clients that need line breaking get more complex if they include the line-breaking code
+			- makes clients bigger and harder to maintain
+		- Different algorithms will be appropriate at different times
+			- Don't want to support multiple line breaking algorithms if we don't use them all
+		- Difficult to add new algorithms and vary existing ones when line breaking is an integral part of client
+	
+	- We can avoid the above problems by defining lasses that encapsulates different line-breaking algorithms ( the strategy pattern)
+	
+		*Principles of the strategy pattern*
+	
+	- Objects have responsibilities 
+	
+	- Different, specific implementations of these responsibilities are manifested through the use of polymorphism
+	
+	- There is a need to manage several different implementations of what is, conceptually, the same algorithm
+	
+	- It is a good design practice to separate behaviors that occur in the problem domain from each other (decoupling)
+	
+		- Allows me to change the class responsible for one behavior without adversely affecting another
+	
+		*Strategy vs. The State pattern*
+	
+	- the strategy and state pattern are very similar
+	
+	- Think of the strategy Pattern as subclasses decide how to implement steps in an algorithm
+	
+	- Think of the State Pattern as an alternative to putting lots of conditionals in your context
+		- Encapsulating interchangeable behaviors and use delegation to decide which behavior to use
+	
+	- One difference between the two is that with the state pattern the Context contains state as an instance variable
+		- There can be multiple taks whose implementation can be dependent on the state
+		- In the strategy pattern, strategy is passed as argument to the method andthe context doesn't have a ny variable to store it 
+	
+		*Advantages*
+	
+	- By encapsulating the algorithm separately, new algorithms complying with the same interface can be easily introduced
+	
+	- Applications can swwitch strategies at run-time(polymorphism)
+	
+	- Enables the clients to choose the required algorithm, without using a "switch" statement
+		or a series of "if-else" statements
+	
+	- Simplifies unit testing because each algorithm is in its own class and can be tested through its interface alone
+		- The developer doesn't need to worry about interactions caused by coupling
+		- Developer is able to test each algorithm independently and not worry about all the combinations possible
+	
+		*When to use the strategy pattern ?*
+	
+	- When many related classes differ only in their behavior
+		- Strategies provide a way to configue a class with one of many behaviors
+	
+	- When you need different variants of an algorithm
+		- We want our application to be flexible to chose any of the algorithm at runtime for specific task
+	
+	- When an algorithm usesdata that clients should not know about
+		- use the strategy pattern to avoid exposing complex, algorithm-specific data structures
+	
+	- When a class defines many behaviors, and these appear as multiple conditional statements in its operations
+		- Instead of many conditionals, move related conditional branches into their own strategy class

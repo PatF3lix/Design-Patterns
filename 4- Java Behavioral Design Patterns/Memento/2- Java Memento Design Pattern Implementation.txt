@@ -1,0 +1,85 @@
+											  Section 26
+										Memento Design Pattern Implementation
+		
+			*Participants*
+		
+	- Memento
+		
+		- Stores the internal state of the Originator object
+		- May store as much or as little of the originator's internal state as necessary
+		- Protects against access by objects other than the originator
+		- Has effectively two interfaces
+			- Caretaker sees a narrow interface to the Memento
+				- Can only pass the memento to other objects
+			- Originator sees a wide interface
+				- Lets it access all the data necessary to restore itself to its previous state
+			- Only the originator that produced the memento would be permitted to access the memento's internal state
+	
+	- Originator
+		
+		- Creates a memento containing a snapshot of its current internal state
+		- Uses the memento to restore its internal state
+	
+	- Caretaker
+		
+		- Responsible for the memento's safekeeping
+		- Never operates on or examines the cntents of a memento
+	
+	- This design pattern is implimented with the two above objects
+	
+			*Originator and Caretaker details*
+	
+	- Originator is the object whose state needs to be saved and restored
+	
+	- Caretaker is the helper class that is responsible for storing and restoring the Originator's state through
+		the Memento object
+		
+		- Keeps track of multiple mementos (maintaining save points)
+		- Memento is stored as an Object within the cartaker
+	
+	- A caretaker requests a memento from an originator, holds it for a time, and passes it back to the originator
+	
+	- Sometimes the Caretaker will not pass the memento back to the originator
+		- The originator may never need to revert to an earlier state
+	
+	- Mementos are passive
+		- Only the originator that created a memento will assign or retrieve its state
+	
+			*Sequence Diagram*
+	
+	- a Caretaker would like to perform an operation on the Originator while having the possibility to rollback
+	
+	- Caretaker calls createMemento() method on the originator asking the originator to pass it a memento object
+		
+		- The originator creates a memento object saving its internal state and passes the memento to the caretaker
+		- The caretaker maintains the memento object and performs the operation
+	
+	- In case of need to undo the operation, the caretaker calls the setMemento() method on the originator passing
+		the maintained memento object
+	
+		- Originator would accept the memento, using it restore its previous state
+	
+			*Implementation consequences*
+	
+	- The memento avoids exposing information that only an originator should manage
+		but that must be stored nevertheless outside the originator
+		
+		- Shields other objects from potentially complex Originator internals, thereby preserving
+			encapsulation boundaries
+	
+	- Having clients manage the state they ask simplifies the Originator and keeps clients
+		from having to notify originators when they are done
+	
+	- Memento might incur considerable overhead if originator must copy large amounts of
+		information to store in the memento
+			- Unless encapsulating and restoring Originator state is cheap, the pattern might not be appropriate
+			
+			*Summary*
+	
+	- The memento will store the internal states of the originator
+	
+	- The originator can access the internal states of the memento and it has the ability to restore into its earlier state
+		- Can also retrieve information from the memento
+	
+	- The caretaker takes care of the memento's safekeeping or protection and it should not	
+		examine the contents of the memento

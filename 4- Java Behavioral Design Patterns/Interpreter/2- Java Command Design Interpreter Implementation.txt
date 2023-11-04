@@ -1,0 +1,50 @@
+											  Section 23
+								Command Design Interpreter Implementation
+		
+		*Participants*
+		
+	- AbstratExpression
+		- Declares an abstract interpret operation that is common to all nodes on the abstract syntax tree
+	
+	- Terminal Expression
+		- Implements an interpret operation associated with terminal symbols in the grammar
+		- An instance is required for every terminal symbol in a sentence
+	
+	- NonterminalExpression
+		- One such class is required for every rule R::= R1R2...Rn in the grammar
+		- Maintains instance variables of type AbstractExpression for each of the symbols
+		- Implements an Interpret operation for nonterminal symbols in the grammar
+			- Interpret typically calls itself recursively on the variables representing R1 through Rn
+	
+	- Context
+		- Contains information that is global to the interpreter
+		
+	- Client
+		- Builds (or is given) an abstract syntax tree representing a particular sentence in the language that the grammar defines
+			- The abstract syntax tree is assembled from instances of the NonterminalExpression and TerminalExpression classes
+		- Invokes the interpret operation
+	
+		*Summary*
+	
+	- The client builds (or is given) the sentence as an abstract syntax tree of
+		NonTerminalExpression and TerminalExpression instances
+		- The client will then initialize the context and invoke the interpret operation
+	
+	- Each NonterminalExpression node defines interpret in terms of interpret on each subexpression
+	
+	- The interpret operation of each TerminalExpression defines the base case in the recursion
+	
+	- The interpret operations at each node use the context to store and access the state of the interpret
+	
+		*Implementation issues*
+	
+	- The interpreter pattern doesn't explain how to create an abstract syntax tree
+		- doesn't address parsing
+		- Will need to be creted by a table-driven parser, by a hand-crafted parser, or directly by the client
+	
+	- You don't have to define the interpret operation in the expression classes
+	
+	- Grammars whose sentences contain many occurences of a terminal symbol might
+		benefit from sharing a single copy of that symbol by using the visitor pattern
+	
+	- Terminal nodes generally don't store information about their position in the abstract syntax tree

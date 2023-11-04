@@ -1,0 +1,137 @@
+			 									Selecting and Using Design Platterns
+
+		*Overview*
+	
+	- Software design Approach
+	
+	- Start out with a conceptual understanding of the whole in order to understand what need to be accomplished.
+	
+	- Identify the patterns that are present in the whole
+		
+		- Think about your problem in terms of the patterns that are present
+		
+		- The purpose of patterns is to define relationships among entities
+	
+	- start with these patterns that create the context for the others
+	
+		- Identify these patterns
+		
+	- Work inward from the context
+		
+		- Look at the remaining patterns and at any other patterns that you might have uncovered
+		
+		- pick the patterns that define the context for the patterns that would remain 
+		
+		- Repeat 
+	
+	- Finally, refine the design and implement within the context created by applying these patterns 
+		one at a time.
+	
+		- As you refine, always consider the context implied by the patterns
+		
+		- The implementation incorporates the details dictated by the patterns
+		
+	- Designing by adding concepts within the context of previous presented concepts is attainable
+		
+		- Many patterns create robust software because they define contexts within which the classes that 
+			implements them can work
+	
+		*Choosing a Pattern*
+	
+	- With more than 20 design patterns in the catalog to choose from it, might be hard to find the one that addresses
+		a particular design problem.
+		
+	- Here are several approaches to finding the design pattern that is right for your problem
+	
+	- Consider how design patterns solve design problems
+		
+		- Determine object granularity -> Granularity in data refers to  the level of detail or precision of the data
+		- Specify object interfaces
+		- Understanding these concepts can help guide your search for the right pattern
+	
+	- Understand the design patterns intent
+		
+		- provided  with the pattern
+		
+		- Identify if intent is relevant to your problem
+		
+		- You can use the classification scheme
+			(Creational, Structural, Behavioral) -> to narrow your search
+		
+	- Study how patterns interrelate
+		
+		- Understanding relationships between design patterns can help direct you to the right pattern or group of patterns
+	
+	- Study patterns of like purpose 
+		
+		- Understand the similarities and differences between patterns of  like purpose
+	
+	-Examine a cause of redesign
+		
+		- Find my issues in your in your problem that may cause a redesign
+		
+		- Look at the patterns that  help you avoid the causes of redesign
+		
+	- Consider what should be variable in your design
+		
+		- The opposite of focusing on the causes of redesign
+		
+		- consider what you want to be able to change without redesign
+		
+		- the focus here is on encapsulating the concept that varies, a theme of many design patterns
+	
+		*Using and applying a pattern*
+	
+	- Once you have picked a design pattern, how do you use it ?
+	
+	- Read the pattern once through for an interview
+		
+		- Pay particular attention to the applicability and consequences of a pattern to ensure the pattern
+			is right for your problem.
+		
+	- Go back and study the structure, participants anc collaborations of the pattern
+	
+		- make sure you understand the classes and objects in the pattern and how they relate to one another
+		
+	- Look at sample code to see a concrete example of the pattern in code
+	
+		- Studying the code helps you learn how to implement the pattern
+		
+	- Define the classes
+		
+		- Declare their interfaces
+		- Establish their inheritance relationships
+		- Define the instance variables that represent data and object references
+		- Identify existing classes in your application that the pattern will affect, and modify them accordingly
+	
+	- Choose names for pattern participants that are meaningful in the application context
+	
+		- Ueful to incorporate the participant name into the name that appears in the application
+
+		- Helps make patterns more eplicit in the implimentation
+		
+		- If you use the strategy pattern for a text compositing algorithm, then you might have classes
+			
+				- SimpleLayoutStrategy or TextLayoutStrategy
+	
+	- Define application specific names for operations in the pattern
+	
+		- Use the responsibilities and collaborations associated with each operation as a guide
+		
+		- Be consistent in your Naming Conventions
+		
+	- Impliment the operations to  carry out the responsibilities and collaborations in the pattern 
+		- Look at coding example
+	
+		*How not to use a design pattern*
+	
+	- Design patterns shoudn't be applied indiscriminately
+	
+	- Often they achieve flexibility and variability by introducing additional levels of indirection
+		
+		- Can complicate a design and/or cost you some performance
+		
+		- A design pattern should not only be applied when the flexibility it affords is actually needed
+		
+		- The consequences of the design pattern are most helpful when evaulating a pattern's benefits
+			and liabilities

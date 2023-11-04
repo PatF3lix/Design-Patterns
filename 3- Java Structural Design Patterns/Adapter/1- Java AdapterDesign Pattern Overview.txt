@@ -1,0 +1,90 @@
+
+												Adapter Design Pattern
+													   Overview
+												
+		- The adapter design pattern converts an interface of a class into another interface of a class into another interface
+			that clients expect.
+			
+			- Works as a bridge between two incompatible interfaces.
+				- The "adapter" does the conversion.
+			- Lets classes work together that could not otherwise.
+			- Also known as a "Wrapper".
+		
+		- Comes under the structural pattern classification as this pattern combines the capability of two independent interfaces
+		
+		- The adapter acts to decouple the client from the implemented interface
+			- Encapsulates any future changes
+			- Client doesn't need to be modified each time it needs to operate against a different interface
+		
+		- Full of good OO design principles
+			
+			- Use of object composition to wrap the adaptee with an altered interface
+				- Can use an adapter with any subclass of the adaptee 
+			- Binds the client to an interface, not an implementation
+			
+											When to use the Adapter Pattern
+											
+		- When you want to use an existing class, and its interface does not match the one you need.
+		
+		- When you want to create a reusable class that cooperates with unrelated or unforssen classes
+			- Classes that do not necessarily have compatible interfaces
+			
+		- When you need to use several existing subclasses, but it is impractical to adapt
+			their interface by sub-classing every one
+			
+			- An object adapter can adapt the interface of its parents class
+			
+		Real World Examples:
+		
+			1- Have you ever needed to use a US-made laptop in Europe ? Then you've probably needed an AC power adapter
+		 ________________________________	     ________________________        _____________________
+		|The European wall outlet exposes|      |The adapter converts one|      |The US laptop expects|
+		|one interface for getting power.|----> |Interface into anonther |----->|another interface    |
+		
+			- The adapter sits in between the plug of your laptop and the european outlet
+			
+			- Its job is to adapt the European outlet so that you can plug your laptop into it and receive power
+			
+			- The adapter changes the interface of the outlet into one that your laptop expects
+			
+			2- Card Reader
+				
+				- Acts as an adapter between memory card and laptop
+					- Plug the memory card into the card reader
+					- Plug the card reader into the laptop
+					- The memory memory card can now be read via laptop
+			
+			
+		Software Examples:
+
+			1- You have an existing software system
+				
+				- You need to add a new vendor class library
+				- The new vendor designed their interfaces differently than the last vendor
+				
+				- You do not want to solve the problem by changing your existing code and you
+					cannot change the vendor's code
+				
+				- Write a class that adapts the new vendor interface into the one you are
+				
+				- Adapter acts as the middleman by receiving requests from the client and converting
+					them into requests that make sense on the vendor classes
+					
+			2- Old-world Enumerators
+			
+				- Early collection types (Vector, Stack, Hashtable, etc.) implement a method (element()),
+					which returns an Enumeration
+				- The Enumeration interface allows you to step through the elements of a collection
+					- Do not need to know the specifics of how they are managed in the collection
+				
+			3- New-world Iterators
+				- Newer Collection classes use an iterator interface
+					-Like Enumeration
+						- Allows you to iterate through a set of items in a collection
+						- Allows you to remove items
+						
+			- Both of these examples use adapters
+			
+		
+		
+		

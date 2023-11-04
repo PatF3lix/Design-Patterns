@@ -1,0 +1,38 @@
+			 									     Creational Patterns
+		*Overview*
+	
+	- A program should not depend on how  objects are created and arranged
+	
+	- Creational design patterns provide a way to create objects
+	
+	- In java, The simplest way to create an instance of an object is by using the new operator
+		- Fred = new Fred(); //Instance of fred class
+		
+	- Creational design patterns abstract the instantiation
+									"hides"
+		*Process*
+			
+			- The creation logic 
+			- Encapsulates knowledge about which concrete classes the system uses.
+			- programmer may call a method or use another object, rather yhan instantiating object directly using the new operator.
+	
+	- All the system at large knows about objects in their interfaces as defined by abstract classes
+	
+		- Gives the programmer a lot of flexibility in what gets created, who creates it, how it gets created, and when
+		- Let's you configure a system with "product" objects that vary widely in structure and functionality
+		-configuration can be static or dynamic
+	
+	- Sometimes creational patterns are competitors
+		
+		- There are cases when either *Prototype* or *Abstract Factory* could be profitably
+		
+	- Sometimes creational patterns are complementary
+		
+		- *Builder* can use one of the other patterns to implement which components get built
+		
+		
+		- *Prototype* can use *Singleton* in its implementation
+	
+	- Creational patterns defer some part of creation to subclasses
+	
+	- Creational object patterns defers it to another object.

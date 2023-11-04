@@ -1,0 +1,107 @@
+											  Section 30
+								Template Method Design Pattern ImpleSmentation
+		
+		*Implimentation Overview*
+		
+	- The template Method Pattern is a very common pattern
+		- There are many implementaions of the template methods that don't quite look like the textbook design of the pattern
+		- It will take practice to identify when and how to use this pattern
+	
+	- Most of the time, subclasses call methods in the superclass
+		- In the template pattern, the superclass template method calls methods (abstract in base class)
+			in the subclasses
+		- Known as the Hollywood Principle - "don't call us, we'll call you."
+	
+	- The Hollywood Principle guide us to put decision making in-high level modules that can decide how and when to call low-level modules
+	
+	- The main template method is in the base class which is an abstract class
+		- The abstract class may define concrete methods, abstract methods, and hooks
+		- Abstract methods are implemented by the subclasses
+	
+	- A hook is a method that is declared in the abstract class
+		- Given an empty or default implementation
+		- Gives subclasses the ability to "hook into" the algorithm at various points
+		- A subclass is also free to ignore the hook
+	
+		*Participants*
+	
+	- AbstractClass
+		
+		- Contains the template method and abstract versions of the operations used in the template method
+			- The template method defines the skeleton of an algorithm
+		
+		- The template method make use of theprimitive operations to implement an algorithm
+			- calls primitive operations as well as operations defined in the abstractClass or those of other objects
+			- Decoupled from the implementation of these operations
+		
+	- ConcreteClass
+		
+		- Implements the abstract operations, which are called when the templateMethod() needs them
+		- May be many concrete classes each implementing the full set of operations required by the template method
+	
+	Example:
+	
+	Here we have our abstract class; it
+	is declared abstract and meant to
+	be subclassed by classes that provide
+	implementation of the operations.
+						|															Here's the template method. It's 
+						|															declared final to prevent subclasses 
+						|															from reworking the sequence of steps
+						V													  		in the algorithm.
+			abstract class AbstractClass {  										/
+																				   /
+			final void templateMethod() {   <-------------------------------------/
+				primitiveOperation1(); \
+				primitiveOperation2();  \  <------------------ The template method defines
+				concreteOperation();    /                      the sequence of steps, each represented
+									   /					   by a method
+			}
+			
+			
+			abstract void primitiveOperation1();\
+											     \ <--------------------- In this example, two of the primitive operations
+			abstract primitiveOperation2();		 / 						   must be implemented by concrete subclasses.		
+												/
+			void concreteOperation() {
+				//implementation here     <---------------- We also have a concrete operation
+															defined in the abstract class. More
+				}                                           about these kinds of methods in a bit...
+			}			
+
+			*Implementation issues*
+		
+	- The primitive operations that a template method calls can be declared as protected methods
+		- Ensures that they are only called by the template method
+	
+	- The template method itself shouldn't be overridden
+		- To prevent subclasses from changing the algorithm, declare the template method as final
+	
+	- An important goal in designing template methods is to minimize the number of abstract operations used to flesh out the algorithm
+		- We don't have a choice, overriding is a must in this case
+	- To reuse an abstract class effectively, subclass writers must understand which operations are designed for overriding
+		- The more operations that need overriding, the more tedious things get for clients
+			
+			*Summary*
+	
+	- Templates provide a good platform for code reuse
+		- Are also helpful in ensuring the required steps are implemented
+	
+	- ConcreteClass relies on AbstractClass to implementation the variant steps of the algorithm
+	
+	- When broken down, there are four different types of methods used in the parent/abstract class
+	
+		- Concrete methods
+			- Standard complete methods that are useful to the subclasses (usually utility methods)
+		
+		- Abstract methods
+			- Methods containing no implementation that must be implemented in subclasses
+		
+		- Hook methods (not shown on previous example)
+			- Methods containing a default implementation that may be overridden in some classes
+			- Often does nothing by default
+		
+		- Template Method
+			- A method that calls any of the methods listed above in order to describe the algorithm without needing
+				to implement the details (loose coupling)
+			- Should be made final so that it cannot be overridden

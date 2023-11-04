@@ -1,0 +1,21 @@
+			 									     Structural Patterns
+		*Overview*
+	
+	- Describes how classes and objects can be combined to form larger structures
+		
+		- Utilizes inheritance to compose interfaces or implementations
+		
+		- Structural object patterns describe ways to assemble objects
+		
+		- e.g. complex user interfaces and accounting data 
+	
+	- These design patterns concern class and object composition
+	
+	- the *composite* design patterns
+		- Describes how to build a class hierarchy made up of classes for two kinds of objects
+	
+	- The *Proxy* design pattern acts as a convenient surrogate or placeholder for another object
+		
+		- Provide a level of indirection to specific properties of objects
+	
+	- There are seven strutural patterns

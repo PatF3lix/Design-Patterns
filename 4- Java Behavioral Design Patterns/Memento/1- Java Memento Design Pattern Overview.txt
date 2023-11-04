@@ -1,0 +1,59 @@
+											  Section 26
+										Memento Design Pattern 
+		
+		*Overview*
+		
+	- The mementto design pattern will capture and externalize an object's internal state so that the object
+		can be restored to this state later, without violating encapsulation
+	
+	- The goal is to save the state of an object, so that in the future, we can go back to the specified state
+	
+	- Implemented in such a way that the saved state data of the object is not accessible
+		outside of the object
+	
+		- protects the integrity of saved state data
+		- doesn't break encapsulation
+	
+	- You can use this pattern when you want to be able to return an object to one of its prvious states
+		- If your user requests an "undo"
+	
+		*Examples*
+	
+	- In notepad we use undo frequently by pressing ctrl + z
+	
+	- A classic example includes the state in a finite state machine
+	
+	- In real-world database programming we often need to roll back a transaction operation
+	
+	- In a video game, a "save progress" option
+		- Player can store their game progress and at least recover most of their efforts when their character dies
+		- "Save progress" function would return a player to the last level he/she completed successfully
+	
+	- A graphical editor that supports connectivity between objects
+		- A user can connect two rectangles with a line
+		- The rectangles stay connected when the user moves either of them
+		- The editor ensures that the line streches to maintain the connection
+	
+		*Why the memento?*
+	
+	- Sometimes it is necessary to record the internal state of an object
+		- required when implementing checkpoints and undo mechanisms
+			- lets users back out of tentative operations or recover from errors
+	
+	- You must save state information somewhere so that you can restore objects to their previous states
+	
+	- Objects normally encapsulates some or all of their state
+		- Making it inaccessible to other objects and impossible to save externally
+		- Exposing this state would violate encapsulation
+			- Can compromise the application's reliability and extensibility
+	
+	- The memento address the above issues without violating encapsulation
+	
+		*Advantages and drawbacks*
+	
+	- Simple and easy to implementing
+	
+	- Provides easy-to-implement recovery capability
+	
+	- A drawback to using Memento is that saving and restoring state can be time consuming
+		- Consider using Serialization to save a system's state

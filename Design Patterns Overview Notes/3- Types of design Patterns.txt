@@ -1,0 +1,43 @@
+			 									     Types of design Patterns
+		*Overview*
+	
+	- Design patterns vary in their granularity, level of abstraction and how they relate to one another.
+	
+	- Some patterns are often used together
+		
+		- Some patterns are often used together
+			- *Composite* is often used with *iterator* or *visitor*
+		
+		- Some patterns are alternatives
+			- *Prototype* is often an alternative to *abstract factory*
+	
+	- Some patterns result in similar designs even though the patterns have different intents
+	
+		- The structure diagrams of *Composite* and the *Decorator* are similar
+		
+	- There are many design patterns and so, we need a way to organize them
+		
+		- Design patterns are classified into families of related patterns
+		
+		- Helps you learn the patterns faster, and it can direct efforts to find new patterns as well.
+		
+	- The design patterns that we will study all have several known applications and are on the middle level of granularity.
+	
+	- They are divided into three types (gang of four)
+		- Organized by purpose (reflects what the pattern does)
+	
+	*Creational -> concerned with the composition of classes or objects
+	
+	*Structural -> deal with the composition of classes or objects
+	
+	*Behavioral -> characterize the ways in which classes or objects interact and distribute responsibility
+	
+	- Design patterns can also be organized by scope (whether the pattern applied primary to classes or to objects
+	
+		- Class patterns deal with relationships between classes and their subclasses
+			- These established relationships through inheritance
+		
+		- Object patterns deal with object ralationships, which can be changed at runtime and are more dynamic
+		
+		- Describes how objects can be composed into larger structures using object composition
+			or by including objects within other objects

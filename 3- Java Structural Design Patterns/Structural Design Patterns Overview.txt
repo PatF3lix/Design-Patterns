@@ -1,0 +1,49 @@
+
+												Structural Design Patterns
+												
+	- Describes how classes and objects can be combined to form larger structures
+	
+		-Utilizes inheritance to compose interfaces or implementations
+		-Structural object patterns describe ways to assemble objects
+		-e.g. complex user interfaces and accounting data
+		
+	- These design patterns concern class and object composition
+	
+	- The composite design pattern
+		-Describes how to build a class hierarchy made up of classes for two kinds of objects
+	
+	- The proxy design pattern acts as a convenient surrogate "replacement" or placeholder for another object
+	
+		-A surrogate model is an engineering method used when an outcome of interest cannot be easily measured or computed,
+		so an approximate mathematical model of the outcome is used instead.
+		
+		-provide a level of indirection to specific properties of objects
+	
+										Class Patterns vs. Object Patterns (sub-category)
+										
+	- Class patterns describe how relationships between classes are defined
+		
+		-Use inheritance to compose interfaces or implementations
+		-Relationships are established at compile time
+		-ex: Adapter
+		
+	- Object patterns describe relationships between objects
+		
+		-Describe ways to compose objects to realize new functionality
+		-Use composition
+		-Relationships are typically created at runtime
+			-More dynamic and flexible
+		-Bridge, composite, decorator, façade, flyweight and proxy patterns
+	
+	- There are 7 structural patterns
+	
+		1- Adapter
+		2- Bridge
+		3- Composite
+		4- Decorator
+		5- Façade
+		6- Flyweight
+		7- Proxy
+
+														 
+														 

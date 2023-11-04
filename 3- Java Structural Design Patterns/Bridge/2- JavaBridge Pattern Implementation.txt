@@ -1,0 +1,122 @@
+													Bridge Pattern Implementation
+															 Overview
+	 
+	 - There are 2 parts in the Bridge design pattern implementation.
+		- Abstraction -> an interface or an abstract class.
+		- Implementation -> an interface or abstract class.
+		
+	- Allows the abstraction and the implementation to be developed independently.
+		- The client code can access only the abstraction parts.
+		- Client not concerned about the Implementation.
+	
+	- The abstraction contains a reference to the implementer.
+	
+	- Children of the abstraction are referred to as refined abstractions.
+	
+	- Children of the implementer are concrete implementers.
+	
+	- Since we can change the reference to the implementer in the abstraction, we are able to change the abstraction's implementer
+		at run-time.
+		
+	- Changes to the implementer do not affect client code.
+		- Increase the loose coupling between class abstraction and its implementation.
+		
+													Participants in details
+	
+	- Abstraction :
+		- Core of the bridge design pattern and defines the crux.
+		- Defines the abstraction's interface.
+		- Contains a reference to the implementer.
+		
+	- Refined Abstraction
+		- Extends the abstraction takes the finer detail one level below.
+		- Hides the finer elements from implementers.
+		
+	- Implementer
+		- Defines the Interface for implementation classes.
+			- Does need tocorrespond directly to the abstraction interface and can be very different.
+				- Implementer provides only primitive operations.
+				- Abstraction defines higher-level operations based on these primitives.
+		- Provides an implementation in terms of operations provided by implementer interface.
+		
+	
+											  Composition/Aggregation over inheritance
+											  
+	- The implementation of the bridge design pattern follows the notion to prefer Composition over inheritance.
+	
+	- When an abstraction can have one of several possible implementations.
+		- Usually inheritance will be used to accomodate this.
+		- An abstract class defines the interface to the abstraction, and concrete subclasses implement it in different ways.
+		
+	- This approach is not always flexible enough.
+		- Inheritance binds an implementation to the abstraction permanently.
+			- Makes it difficult to modify, extend, and reuse abstractions and implementations independently.
+	
+	- The bridge pattern is an excellent example of following two the mandates of the design pattern community.
+		- "Find what varies and encapsulate it!"
+		- "Favor aggregation over class inheritance"
+		
+	- The Bridge pattern is one of the toughest patterns to understand in part
+		because it is so powerful and applies to so many situations.
+			- Also goes against a common tendency to handle special cases with inheritance
+	
+	High Level Design Example:
+	
+	Ex 1
+		- Imagine you're going to revolutionize "extreme lounging".
+		- You are writting the code for a new ergonomic and user-friendly remote control for Tvs.
+		- You already know you have got to use gd OO techniques.
+			- While the remote is based on the same abstraction, there will be lots of implementations.
+			- One for each model of Tv.
+	
+	Problems with the current design :
+	
+		- You know that the remote's user interface won't be right the first time.
+		
+		- You expect that the product will be refined many times as usability data is collected on the remote control.
+		
+		- Your dilemma is that the remotes are going to change and the TVs are going to change.
+		
+		- You have already abstracted the user interface
+			- You can vary the implementation over the many Tvs your customers will own
+			
+		- You are also going to need to vary the abstraction
+			- It is going to change over time as the remote is improved based on the user feedback
+			
+		- With the current design we can vary only the Tv implementation, not the user interface
+		
+		- The bridge pattern will allow you to vary the implementation and the abstraction
+		
+	After Corrections refer to Class Diagram Part 2 :
+	
+		- Now we have two hierarchies.
+			- One for the remotes.
+			- One for the platform-specific TV implementations.
+		
+		- The bridge allows us to vary either side of the two hierarchies independently.
+		
+															Summary
+															
+	- The pattern is extremely helpful when our class and its associated functionalities may change in frequent intervals
+	
+	- We remove the concrete binding between an abstraction and the corresponding implementation
+		- Both hierarchies (abstraction and its implementations) can extend through child classes
+		- Both hierarchies can grow independently
+			- If we make any change in abstraction methods, they do not have an impact on the implementer method
+			
+	- The abstraction and implementer do not need to be an abstract classes 
+		- Can be interfaces
+		
+	- The abstraction contains the reference to its implementer 
+		
+	- You can change the implementer dynamically (at runtime) by changing the reference in the abstraction
+		
+			
+		 
+	
+		
+	
+	
+		
+		
+	

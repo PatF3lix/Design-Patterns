@@ -1,0 +1,38 @@
+						Behavioral Design Patterns
+							   Overview
+		
+		*Overview*
+	
+	- These design patterns are specifically concerned with communication between objects
+	
+		- Characterize complex control flow that is difficult to follow at run-time
+		- Shift the focus away from floww of control to let you concentrate just on the
+			way objects are interconnected.
+		
+	- These patterns increase flexibility in carrying out this communication
+	
+	- Provide solutions on how to segregate objects to be both dependent and independent
+	
+	- Concerned with algorithms and the assignment of responsibilities between objects
+	
+		*Class Patterns vs. Object Patterns (sub-category)
+	
+	- Behavioral class patterns use inheritance to describe algorithms and flow of control
+		- The template method is an abstract definition of an algorithms
+			- Defines an algorithm step by step
+			- A subclass fleshes out the algorithm by defining the abstract operations
+	
+	- Behavioral object patterns describe how a group of objects cooperate to perform a task that no single
+		object can carry out alone
+			- Uses object composition rather than inheritance
+			- The Mediator pattern uses a mediator object for peer object communication
+				- Mediator provides the indirection needed for loose coupling
+	
+	- There are  behavioral patterns that we will study
+		
+		1-	Chain of Responsibility Pattern	6- Memento Pattern	10-Template Method Pattern
+		2-	Command Pattern					7- Observer pattern 11- Visitor Pattern
+		3-	Interpreter Pattern				8- State Pattern
+		4-	Iterator Pattern				9- Strategy Pattern
+		5-	Mediator Pattern									
+		

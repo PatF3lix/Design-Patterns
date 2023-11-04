@@ -1,0 +1,84 @@
+											  Section 31
+								Visitor Design Pattern Implementation
+		
+		*Participants*
+	
+	- Visitor
+	
+		- Used to declare the visit's operations for all the types of visitable classes
+		- The operation's name and signature identifies the class that sends the visit request to the visitor
+			- Lets the visitor determine the concrete class of the element being visited
+			- The visitor can then access the element directly through its particular interface
+	
+	- Concrete Visitor
+	
+		- Implements each method declared by Visitor
+		- Each operation implements a fragment of the algorithm defined for the corresponding class of object in the structure
+		- Provides the context for the algorithm and stores its local state
+			- State often accumulates results during the traversal of the structure
+	
+	- Element 
+		
+		- Defines an Accept method that takes a visitor as an argument
+			- The entry point which enables an object to be "visited" by the visitor object
+	
+	- ConcreteElement
+	
+		- Implements an Accept method that takes a visitor as an argument
+			- The visitor is passed to this object using the accept method
+	
+	- ObjectStructure
+		
+		- Can enumerate its elements
+		- May provide a high-level interface to allow the visitor to visit its elements
+		- May either be a composite or a collection such as a list or a set
+		
+	- Client
+		
+		- A consumer of the classes of the visitor design pattern
+		- Has access to the data structure objects and can instrcut them to accept a Visitor to perform the appropriate 
+			processing
+	
+			*Sequence Diagram*
+	
+	-A client creates a concreteVisitor object and then traverses the object structure (composite or collection),
+		visiting each element with the visitor
+
+	- When an element is visited, it calls the visitor operation that corresponds to its class
+		- The element supplies itself as an argument to this operation to let the visitor access its state
+		
+			*Summary*
+	
+	- The visitor pattern will create an external class that uses data in other classes
+	
+	- The core of this pattern is the Visitor interface
+		- Defines a visit operation for each type of ConcreteElement in the object structure
+			(Composite or collection)
+	
+	- The ConcreteVisitor implements the operations defined in the Visitor interface
+		- Will store local state, typically as it traverses the set of elements
+	
+	- The element interface simply defines an accept method to allow the visitor to run some action over that element
+		- The ConcreteElement will implement this accept method
+	
+	- Visitor operations are controlled in a unified manner
+	
+	- Allows you to add operations to a Composite structure (or collection) without changing the structure itself)
+	
+	- Very easy to add operations that depend on the components of complex objects
+		- You can define a new operation over an object structure simply by adding a new visitor
+	
+	- A visitor gathers related operations and separates unrelated ones
+		- Localized in a visitor
+		- Unrelated sets of behavior are partitioned in their own visitor subclasses
+		- Simplifies both the classes defining the elements and the algorithms defined in the visitors
+	
+	- Class encapsulation may need to be compromised when visitors are used
+		- If the existing structure is really complex, the traversal mechanism becomes complex
+	
+	- a drawback of visitor pattern is that we should know the return type of visit(0 methods
+		at the time of designation
+			- Otherwise we will have to change the interface and all of of its implementations
+	
+	- Another drawback is that if there are too many implementations of the visitor interface,
+		it makes it hard to extend

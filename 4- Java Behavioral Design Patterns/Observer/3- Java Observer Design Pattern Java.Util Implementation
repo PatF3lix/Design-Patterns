@@ -1,0 +1,54 @@
+											  Section 27
+								Observer Design Pattern Java Implementation
+		
+		*Java Implementation*
+		
+	- The Observer pattern is so useful that Java contains an implimentation of it in its packages
+	
+	- These are quite similar to our Subject and Observer interfaces, but give you a lot of functionality out of the box
+		- You can also implement either a push or pull style of update to your observers
+	
+	- The Observer class and the Observer interface make up the pattern
+		- Observable class plays the role of the subject
+	
+	- Instead of the methods attach, detach, and notify, Java uses addObserver, deleteObserver, and notifyObservers
+	
+	- For an Object to become an observer, you will need to implement the Observer interface
+		- Call addObserver() on any Observable object
+		- To remove yourself as an observer, just call deleteObserver()
+	
+	- For the Observable to send notifications you need to be Observable by extending the java.util.Observable superclass
+		- You first must call the setChanged() method to signify that the state has changed in your object
+		- Then call one of two notifyObservers() methods (notifyObservers() or notifyObservers(Object arg))
+	
+	- For an Observer to receive norifications, it must implement the update method
+		- The signature of the method is a bit different
+			- If you want to "push" data to the observers, you can pass the data object to the notifyObservers(arg) method
+			- If not, then the Observer has to "pull" the data it wants from the Observable Object passed to it
+	
+	- The setChanged() method is used to signify that the state has changed
+		- When notifyObservers() is called it should update its observers
+		- If notifyObservers() is called without first calling setChanged(), the observers will not be notified
+	
+	- You need to call setChanged() for notifications to work
+		- You may also want to use the clearChanged() method, which sets the changed state back to false
+		- And the hasChanged() method,  which tells you the current state of the changed flag
+	
+			*Observations on Java implementation*
+	
+	- The java.util.Observable implementation has a number of problems that limit its usefulness and reuse
+		- Not widely used
+		- Implementation is really simple
+	
+	- Observable is a class
+		- You have to subclass it
+		- Means you cannot add on the Observable behavior to an existing class that already extends another superclass
+		- limits its reuse potential (and isn't that why we are using patterns in the first place ?)
+	
+	- There is no Observable interface
+		- You cannot create your own implimentation that plays well with Java's built-in Observer API
+		- You don't have the option of swapping out the java.util implementation for another (say, a new, multithreaded implementation)
+	
+	- Observable may serve your needs if you can extend java.util.Observable
+	
+	- On the other hand, more ofthen than not, you will need to create your own implimentation

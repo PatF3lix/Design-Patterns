@@ -1,0 +1,53 @@
+													Façade Implimentation
+														  Overview
+
+	- Implementing the façade is fairly straightforward
+		- One of the easiest patterns to implement
+		
+	- There are no mind-bending abstractions to get your head around
+	
+	- Involves a creating a single class which provides simplified methods required by the client
+		- Delegates calls to methods of existing system classes
+		
+					Participants
+	
+	- Façade
+		- Knows which subsystem classes are responsible for request
+		- Delegates client requests to appropriate subsystem objects
+		
+	- Subsystem classes
+		- Implement subsytem functionality.
+		- Handle work assigned by the façade objects.
+		- Have no knowledge of the façade.
+			- They keep no references to it.
+		
+						Workflow
+	
+	- Clients communicate with the subsystem by sending requests to the façade.
+	
+	- The façade will forward the requests to the appropriate subsystem object(s).
+	
+	- The subsystem objects perform the actual work.
+		- The façade may have to do work of its own to translate its interface to subsystem interfaces.
+		
+	- Clients that use the façade don't have to access its subsystem objects directly.
+	
+					Implementation issues
+				
+	- The coupling between clients and the subsystem can be reduced even further.
+		- Make the façade an abstract class with concrete subclasses for different implimentations
+			of a subsystem.
+			- Clients can communicate with the subsystem through the interface of the abstract façade class.
+				- Keeps clients from knowing which implementation of a subsystem is used.
+	
+	- An alternative to sub-classing is to configure a façade object with different subsystem objects.
+		- To customize the façade, simply replace one or more of its subsystems objects.
+	
+	- Making subsystem classes private could also be useful.
+	
+	
+	
+	
+			
+	
+	

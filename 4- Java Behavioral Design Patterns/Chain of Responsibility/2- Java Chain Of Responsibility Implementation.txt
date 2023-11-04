@@ -1,0 +1,42 @@
+						Chain of Responsibility
+							   Implementation
+   
+		*Implimentation Overview*
+	
+	Participants
+
+	- Handler
+		- Defines an interface for handling requests
+		- (Optional) implements the successor link
+			- Dispatches the request to chain of handlers
+		
+	- ConcreteHandler
+		- Handles request it is responsible for
+		- Can access its successor
+		- If the ConcreteHandler can handle the request, It does so; Otherwise it forwards the request to its successor
+	
+	- Client
+		- Initiates the request  to a ConcreteHandler object on the chain
+	
+	- When a client issues a request, the request propagates along the chain until a ConcreteHandler object takes responsibility
+		for handling it.
+	
+	
+		*Important Implementation considerations*
+	
+	- Client doesn't know which part of the chain will processing the request
+		- It will send the request to the first object in the chain
+	
+	- Each object in the chain will have its own implimentation to process the request
+		- Either full or partial or send it to the next object in the chain
+	
+	- Every Object in the chain should have a reference to the next object in the chain to forward the request to
+		- This is achieved by composition
+		
+	- Creating the chain carefully is very important
+		- There might be a case that the request will never be forwarded to a particular processor or there are 
+			no objects in the chain who are able to handle the request
+			- Add a check to make sure it gets processed fully by all the processors
+			- Or throw an exception if the request reaches the last object and there are no further objects in
+				the chain to forward the request to.
+	

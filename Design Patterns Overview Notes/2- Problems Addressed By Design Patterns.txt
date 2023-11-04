@@ -1,0 +1,43 @@
+														The Java Design Patterns
+															  Overview
+		*Problems addressed by design patterns *
+	
+	- Design patterns solve many of the day-to-day problems object-oriented designers face
+	
+	- How to identify the appropriate objects to utilize/create
+		- Object-oriented programs are made up of objects
+		- Object packages both data and the procedures that operate on the data
+		
+	- How to specify object interfaces
+	
+		- Every operation declared by an object specifies the operation's name,
+			the objects it takes as parameters, and the operation's return value.
+		
+		- An object's interface characterizes the complete set of requests that can be sent to the object.
+		
+	- How to specify object implimentation
+		
+		- An object's implimentation is defined by it class
+		
+		- The class specifies the internal data and representation and defines the operations the object can performe
+	
+	- Determining object granularity
+		- Object can vary tremendously in size and numbers
+		
+		granularity = the quality or condition of being granualar.
+		granular = resembling or consisting of small grains of particles
+		
+		- In computer science, granularity refers to a ratio of computation
+	
+	- Can represent everything down to the hardware or all the way up the entire applications
+	
+	- Design patterns address the above issue'sent
+		
+		- The *Façade* pattern describes how to represent complete subsystems as objects
+		
+		- The *Flyweight* pattern describes how to support huge numbers of objects at the finest granularities
+		
+		- The *Abstract Factory* and *Builder* yields objects whose only responsibilities are creating other objects
+		
+		- *Visistor* and *Command* yields objects whose only responsibilities are to implement
+			a request on another object group of objects

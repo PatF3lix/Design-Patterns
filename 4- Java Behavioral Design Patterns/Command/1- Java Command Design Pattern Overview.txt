@@ -1,0 +1,96 @@
+											  Section 22
+										Command Design Pattern
+		
+		*Overview*
+		
+	- The command design pattern encapsulates a request as an object (command)
+		- Let's you parameterize clients with different requests
+			- You can queue or log these requests as well as supporting "undoing these requests
+	
+	- The command object encapsulates a request by binding together a set of actions on a specific receiver
+		- Does this by exposing just one method execute() that causes some actions to be invoked on the receiver
+	
+	- The Command's execute method can store state for reversing its effects of the command itself thus supporting an "undo" operation
+		- Or you can even add an unExecute method that reverses the effects of a previous call to execute
+	
+	- The pattern can also support logging changes so that they can be reapplied in case of a system crash
+	
+	- This pattern is a data driven design pattern
+	
+	- It is widely used for undo/redo operations
+	
+	- A callback function can be designed with this pattern
+	
+	- It is very useful when we model transactions (which can be responsible for changes in data)
+	
+	- Makes our code extensible as we can add new commands without changing existing code
+	
+	- This pattern allows us to issue requests to objects without knowing anything about
+		the operation being requested or the receiver of the request
+	
+		*Examples*
+	
+	- We could use the command pattern when placing orders to buy and sell stocks
+		- We would create an interface Order which acts as a command (buying and selling as concrete classes)
+		- A Stock class could act as the request
+		- A class Broker could act as an invoker object
+			- Takes and places orders
+	
+	- The broker object uses command pattern to identify which object will execute which command based on the type of command
+	
+	- Another example would be user interface toolkit
+		- Includes objects like buttons and menus
+			- Carry out requests in response to user input
+			- The Toolkit cannot implement the request explicitly in the button or menus
+				- Only applications that use the toolkit know what should be done on which object
+				- No way of knowing the receiver of the request or the operations that will carry it out
+	
+	- The Command pattern lets toolkit objects make requests of unspecified application objects by turning the request itself
+		into an object
+			- Object can be stored and passed around like other objects
+	
+	- We can undo and redo many operations in our daily life
+		- We can erase a pencil drawing with a rubber
+		- we can re-architect our living places
+		- we can forget bad memories and start a fresh journey
+		
+	- Undo/redo operations are part oof our life
+		- We are doing these operations through some commands
+		- Either externally or internally
+	
+	- The above scenario also applies with the Microsoft paint application
+		- We can do the undo/redo operations easily through some menu options or shortcut keys
+	
+		*When to use the command pattern ?
+	
+	- When you want to parametrize objects by an action to perform
+	
+	- When you want to specify, queue, and execute requests at different times
+		- A Command object can have a lifetime independent of the original request
+	
+	- When you want to support undo
+		- The command's execute method can store state for reversing its effects in the command itself
+	
+	- When you want to support logging changes so that they can be reapplied in case of a system crash
+		- Can augment the Command interface with load and store operations
+			- Keep a persistent log of changes
+	
+	- When you want to implement a callback method
+	
+		*Summary*
+	
+	- The Command Pattern decouples an objectt making a request from the one that knows how to perform it
+	
+	- A Command object is at the center of this decoupling and encapsulates a receiver with an action (or set of actions)
+	
+	- Commands may support undo by implementing an undo method that restores the object to its previous state
+	
+	- Commands may also be used to implement logging and transactional systems
+	
+	- Commands can be extended easily
+		- While we use them, we don't need to change the classes in the system
+		
+	- In the chain of responsibility pattern we forward a request along a chain of objects with the hope that any
+		of the objects along that chain will handle the request
+		
+	- In the command pattern we will forward the request to a specific object

@@ -1,0 +1,60 @@
+											  Section 28
+										State Design Pattern Overview
+		
+		*Overview*
+		
+	- The state design pattern allows an object to alter its behavior when its internal state changes
+		- Object will appear to change its class
+		- An object's behavior is the result of the function of its state
+			- Behavior gets changed at runtime depending on the state (polymorphism)
+	
+	- Noramlly, if we have to change behavior of an object based on its state, we have a state variable in the object and use if-else
+		condition block to perform different actions based on the state
+			- With the state pattern, we can remove dependencies on if/else or switch/case conditional logic
+	
+	- We create objects which represent various states and a context whose behavior varies as its state object changes
+	
+	- Used to provide a systematic and loosely coupled way to achevieve state changes through a Context and state implementation
+	
+	- Is very similar to Strategy Pattern which we will discuss in a future lecture
+	
+	Example
+		
+		- A traffic signal
+			- stop, go, and slow down states
+		
+		- Consider a TCP network connection
+			- An object that is responsible for communication can be in various states
+				- Established, listening, and closed
+			- When a TPCConnection object receives requests from other objects, it responds differently depending on its current state
+				- e.g an Open request depends on whether the connection is in its closed state or established state
+		
+		- How about a job processing application where we can process only one job at a time
+			- If a new job appears, either the application will process that job (accepted)
+			- Or it will signal that the new job cannot be processed at this moment because the system is already processing
+				the maximum number of jobs in it (queued)
+		
+			*When to use the state pattern*
+		
+	-  When an object's behavior depends on its state, and must change its behavior at run-time depending on that state
+	
+	- When operations have large, multipart conditional statements that depend on the object's state
+		
+		- State is usually represented by one or more enumerated constants
+		- Often, several operations will contain this same conditional structure
+			- State pattern puts each branch of the conditional in a separate class
+			- Lets you treat the object's state as an object in its own right that can vary independently from other objects
+	
+			*Advantages*
+	
+	- Puts all behavior associated with a state into one object
+		- Improves cohesion
+	
+	- Allows state transition logic to be incorporated into a state object rather than in a monolith if or switch statements
+	
+	- Helps avoid inconsistent states since state changes occur by rebinding one variable rather than several
+	
+	- Very easy to add more states for additional behavior
+		- Makes code more robust, easily maintainable and flexible
+	
+	- One drawback is that the pattern does increase the number of objects (one for each state)

@@ -1,0 +1,139 @@
+														The Java Design Patterns
+															  Overview
+	
+		*Topics*
+	
+	- Overview of th design patterns patterns (defintion, gang of four)
+	
+	- Advantages of design patterns (why use design patterns)
+	
+	- Types of design patterns (creational, structural, behavioral)
+	
+	- Important design principles and strategies related to design patterns (Java)
+	
+	- Design Smells
+	- Programming to an interface
+	- Composition over inheritance
+	- Delegation principles
+	- Single Responsibility (cohesion)
+	- Open-closed Principle
+	- Liskov Substitution Principle
+	- Interface Segregation Principle
+	- Dependency Inversion and dependency injection
+	
+		*Uml*
+	
+	- Class diagrams
+	- Object oriented concepts in Uml (inheritance, interfaces, composition, annotation)
+	
+		*Creational Design Patterns*
+		
+	- Factory
+	- Abstract Factory
+	- Singleton
+	- Builder
+	- Prototype
+	
+		*Structural Design Patterns*
+	
+	- Adapter
+	- Bridge
+	- Composite
+	- Decorator
+	- Façade
+	- Flyweight
+	- Proxy
+	
+		*Behavioral Design Patterns*
+	
+	- Chain of responsibility
+	- Command
+	- Interpreter
+	- Iterator
+	- Mediator
+	- Memento
+	- Observer
+	- State
+	- Strategy
+	- Template Method
+	- Visitor
+	
+		*History*
+	
+	- The concept of design patterns originated from Christopher Wolfgang Alexander (Austria, who was an architect)
+	
+	- "Each pattern describes a problem which occurs over and over again in our environement,
+		and then describes the core of the solution to that problem, in such a way that you can use this solution a million times
+		over, whitout ever doing it the same way twice."
+	
+	- In 1994-95, the Gang of four applied Alexander's concepts to software developement.
+		
+		- Solution are expressed in terms of objects and interfaces instead of walls and doors
+	
+	- Four essential elements
+		- A design pattern has four essential elements
+	
+	Pattern = template
+	
+		*Consequences*
+	- The results and trade-offs of applying the pattern
+	
+	- Critical for evaluating design alternatives and for understanding the costs and benefits
+		of applying the pattern
+	
+	- Often concern space and time trade-offs
+	
+	- Includes its impact on a system's flexibility, extensibility, or portability
+	
+		*Solution*
+	
+	- Describes the elemnts that make up the design, their relationship, responsibilities, and collaborations.
+	
+	- Does NOT describe a particular concrete design or implimentation.
+	
+		*Advantages of design patterns*
+	
+		* Why use design patterns ?
+		
+		- The most commonly stated reason for studying and utilizing design patterns
+			are because they enable us to do the following:
+		
+			- Use the best solutions for certain problems faced during software developement.
+			
+			- Make it easier to reuse successful designs and architectures (software reuse)
+			
+			- solutions have been evolving over a long period of time
+			
+			- Learning these patterns helps unexperienced developers to learn software design in an easy and faster way
+			
+			- Get the benefits of learning from experience of others
+			
+			- Can get a head start on my problems and avoid gotcha's
+			
+			- Help you to avoid reinventing the wheel.
+		
+			- Understand basic-object-oriented principles that achieve high quality design
+				- keep classes separated and prevent them from having to know to much about one another
+				- Encapsulation, inheritance, and polymorphism
+			
+			- Improve team communication and individual learning by establishing a common platform
+				- Design pattern provide a common point of reference during the analysis and design phase of projet
+				
+			- Allows you to describe your programming approach succintly in terms that other programmers can easily understand
+			
+			- Design Patterns give a higher perspective on the problem and go on the process of the design
+				and object oriented analysis and design.
+			
+				- Frees you from dealing with the details to early
+				
+				- Help a desinger get a design "Right" faster
+				
+			- Improves modifiability and maintainability of code
+				
+				- Time-tested solutions have evolved into structures that can handle change more readability
+					than what often first comes to mind as a solution
+				
+				- Easier to understand code-easier to maintain by default
+				
+			- Improved doc. resulting from common terminology
+			

@@ -1,0 +1,30 @@
+											  Section 24
+										Iterator Design Pattern Implementation
+		
+		*Participants*
+		
+	- Iterator
+		- Defines an interface for accessing and traversing elements
+	
+	- ConcreteIterator
+		- Implements the iterator interface
+		- Keeps track of the current position in the traversal of the aggregate
+	
+	- Aggregate
+		- Defines an interface for creating an Iterator object
+	
+	- Concrete Aggregate
+		- Implements th Iterator creation interface to return an instance of the proper
+			ConcretIterator
+	
+	- A ConcreteIterator keeps track of the current object in the aggregate and can compute
+		the succeeding object in the traversal
+	
+		*Implementation consequences*
+	
+	- The implementation supports variations in the traversal of an aggregate
+		- May traverse the parse tree inorder or preorder
+	
+	- Iterators make it easy to change the traversal algorithm
+		- Just replace the iterator instance with a different one
+		- You can also define Iterator subclasses to support new Traversals

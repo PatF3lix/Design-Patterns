@@ -1,0 +1,94 @@
+													  Composite Design Pattern
+															  Overview
+
+	- The composite design pattern composes objects into tree structures to represent part-whole hierarchies.
+		- Lets clients treat individual objects and compositions of objects uniformly.
+		
+	- A composite is an object designed as a composition of one-or-more similar objects that all exhibit similar functionality.
+		- i.e 
+			- A group of objects that is treated the same way as a single instance of the same type of object
+			
+	- When we have many objects with common functionalities we create a composite object.
+		- Creates a class that contains a group of its own objects.
+	
+				C
+			   / \
+			  C   L     - Where, C = Composite & L = Leaf
+			 / \
+			L   L       
+	
+	- Allows us to build structure, we can apply the same operations over both composites and individual objects.
+		- We can ignore the differences between compositions of objects and individual objects.
+	
+	- Using a composite structure, we can apply the same operations over both composites and individual objects.
+		- We can ignore the differences between compositions of objects and individual objects.
+	
+	- Programmers often have to understand the difference between a leaf-node and a branch when dealing with tree-strured data.
+		- Makes code more complex, and therefore, more error prone.
+		- The composition pattern solves this by providing an interface that allows treating complex and primitive objects uniformly.
+		
+	- The main purpose of the composite is to allow you to manipulate a single instance of the object
+		just as you would manipulate a group of them.
+		
+		- The operations you can perform on all the composite objects often habe a least common denominator relationship.
+		
+															Examples
+															
+	1- Any  organization tht has many departments with each departemenet having many employees to serve would utilize
+		a composite pattern.
+		
+		- All are employees of the organization.
+		- Groupings of employees  could create a departement.
+			- Those departements ultimately can be grouped together to build the whole organization (hierarchy).
+	
+	2- Any tree structure in computer science follows the same concept as the composite.
+	
+	3- Graphics application like drawing editors and schematic capture systems.
+		- Let users build complex diagrams out of simple components.
+		- User can group components to form larger components.
+	
+	4- Nested groups of menus and menu items in a GUI.
+		- By putting menus and items in the same structure we create a part-whole hierarchy.
+			- a tree of objects that is made of parts (menus and menu items).
+				- Can be treated as a whole, like one big huge menu.
+		
+		- We can use this  pattern to treat this "huge" menu as "individual objects and compositions uniformly".
+
+		- We have a tree structure of menus, submenus, and perhaps sub submenus along with menu items.
+			- Any menu is a "composition" because it can contain both other menus and menu items.
+			- Individual objects are just the menu items.
+		
+		- Using a design that follows the Composite Pattern woul allow you to write the same operation (like printing!)
+			over the entire menu structure.
+			
+												When to use the Composite
+		
+		- When clients need to ignore the difference between compositions of objects and individual objects.
+			- Using multiple objects in the same way with nearly identical code to handle them.
+			- Less complex in this situation to treat primitives and composites as the same.
+		
+		- When you are worried about memory usage.
+			- Less number of objects reduces the memory usage.
+			- Keep you away from errors related to memory like java.lang.OutOfMemoryError.
+			
+		- When efficiency is a concern.
+			- Creating an object in Java is really fast, however, we can still reduce the execution time of our
+				program by sharing objects.
+		
+		- When you are forced to maintain child ordering.
+			- parse trees as components.
+				- We need to take special care to maintain that ordering.
+		
+														Advantages
+														
+		- Makes it easy to add new kinds of components.
+		
+		- Makes clients simpler.
+			- They do not have to know if they are dealing with a leaf or a composite component.
+		
+													   Disadvantages
+												   
+	   - One drawback is that makes it harder to restrict the type of components of a composite.
+		- You cannot rely on the type system to enforce constraints for you.
+			- Have to use run-time checks instead.
+			

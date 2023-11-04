@@ -1,0 +1,92 @@
+						Chain of Responsibility
+							   Overview
+		
+		*Overview*
+	
+	- The chain of responsibility pattern avoids coupling the sender of a request to its receiver by giving more than 
+		one object a chance to handle the request
+			- Chain the receiving objects and pass the request along the chain until an object handles its
+	
+	- This pattern processes a series of objects one by one (in a sequential manner)
+		- a source will initiate this processing
+		
+	
+	- Lets you send requests to an object implicitly through a chain of candidate objects
+		- After one's processing is done, if anything is still pending, it can be forwarded  to the
+			next object in the chain
+			- Each receiver contains reference to another receiver
+		- We can add new objects anytime (run-time) at the end of a chain
+	
+	Examples:
+	
+	- In an Organization, there are some customer care executions who handle feedback/issues from customers
+		- They will forward those customer issues/escalations to the appropriate department in the organization
+		- Not all departments will start fixing an issues
+		- The department that seems to be responsible will take a look first, and if the departement staff believes that the
+			issue should be forwarded to anonther department, he/she will do that
+	
+	- Several class libraries use the Chain of Responsibility pattern to handle user events
+		- When the user clicks the mouse or presses a key, an event gets generated and passed along the chain
+	
+	- Consider a context-sensitive help facility for a graphical user interface
+		- User can obtain help information on any part of the interface just by clicking on it
+		- The help that is provideed depends on the part of the interface that is seleected and its context-sensitive
+			- A button widgget in a dialog box might have different help information than a similar button in the main window
+	
+	- Natural to organize help information according to its generality
+		- From the most specific to the most general (a chain)
+	
+	JDK Examples:
+	
+	- An example in the JDk would be the use of the try/catch blocks
+		- Every catch block is kind of a processor to process that particular exception
+		- When any exception occurs in the try block
+		- Sends to the first catch block to process
+		- If the catch block isn't able to process it, it forwards the request to the next object
+			in chain (next catch block)
+		- If even the last catch block isn't able to process it, theexception it thrown outside
+			of the chain to the calling program
+		
+		
+	- Other packages/methods that use this pattern in the JDk include
+		- java.util.logging.Logger#log()
+		- javax.servlet.Filter#doFilter()
+	
+	When to use this pattern ?
+	
+	- When you want to decouple a request's sender and receiver
+	
+	- When multiple objects, determined at runtime, are candidates to handle a request
+	
+	- When you don't want to specify handlers explicitly in your code
+	
+	- When you want to issue a request to one of several objects without specifying the receiver explicitly
+		- We expect any of our receivers to handle that request
+	
+	- When multiple objects can handle a request and the handler doesn't have to be a specific object
+	
+	Advantages and drawbacks
+	
+	- Decouples the sender of the request and its receivers
+		- Frees an object from knowing which other object handles a request
+		- Both the receiver and the sender have no explicit knowledge of each other
+	
+	- Simplifies your object
+		- It doesn't have to know the chain's structure or keep direct references to its members
+		- Keeps a single reference to their successor
+	
+	- Gives you added flexibility in distributing responsibilities among objects
+		- Allows you to add or remove responsibilities dynamically by changing the members or order of the chain
+	
+	- A drawback is that the execution of the request isn't garanteed
+		- May fall off the end of the chain if no object handles it
+	
+	- Another drawback is that it can be hard to observe and debug at runtime
+	
+		Summary
+	
+	- With the Chain of Responsibility Pattern, you create a chain of objects to examine requests
+	
+	- Each object in turn examines a request and either handles it, or passes it on to the next object in the chain.
+	
+	- Each object in the chain acts as a handler and has a successor object

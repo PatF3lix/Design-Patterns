@@ -1,0 +1,30 @@
+							Proxy Design Pattern
+								Implimentation
+	
+		Participants
+	
+	- Subject
+		- Defines the common interface for RealSubject and Proxy.
+			- A Proxy can be used anywhere a RealSubject is expected.
+		
+	- Proxy
+		- Clients interact with the RealSubject through the Proxy.
+		- Maintains a reference that lets the proxy access the real subject.
+			- Controls access to the real subject and may be responsible for creating and deleting it.
+				- May be needed if the Subject is running on a remote machine.
+				- May be needed if the Subject is expensive to create in some way or if access.
+					to the subject needs to be protected in some way.
+			- Forwards requests to RealSubject when appropriate (delegation).
+				- Depending on type of proxy.
+	
+	- Provides an interface identical to Subject's so that a proxy can be substituted forthe real subject.
+	- May refer to a Subject if the RealSubject and Subject interfaces are the same.
+	
+	- Other responsibilities depend on the kind of proxy.
+		- Remote proxies are responsible for encoding a request and its arguments and for sending the encoded request
+			to the real subject in a different address space.
+		- Virtual proxies may cache additional information about the real subject so that they can postpone accessing it.
+		- Protection proxies check that the caller has access permissions required to perform a request.
+	- Has the authority to act on behalf of the client to interact with the target object.
+	
+	

@@ -1,0 +1,65 @@
+											  Section 24
+										Iterator Design Pattern
+		
+		*Overview*
+		
+	- The iterator design pattern provides a way to access the elements of an aggregate object sequentially
+		without exposing its unerlying representation
+	
+	- An aggregate object is an object that contains other objects for the purpose of grouping those objects as a unit
+		- Also called a container or a collection
+		
+	- Iterators are generally used to traverse a container to access its elements
+	
+	- It is very commonly used design pattern in Java with the collection framework
+		- used to access the elements of a collection object
+	
+	- The pattern hides the actual implementation of traversal through the collection
+		- Client programs just use iterator methods
+	
+		*Examples*
+	
+	- Suppose there are two compagnies, company A and company B
+		- Company A stores its employee records (name,etc) in a linked list
+		- Company B stores its employee data in a big array
+		
+	- One day the two companies decide to work together
+		- The iterator pattern will allow us to have a common interface through which we can access data for both
+			companies
+		- We will simply call the same methods without rewriting any code
+	
+	- Another example would be in college
+		- The arts departmenet may use an array dat structure
+		- The science department may use a linked list data structure to store their student's records
+	
+	- The main administrative departement will access that data through common methods using the iterator
+		- It doesn't care which data structure is used by individual departments
+	
+		*More Overview*
+	
+	- As mentioned, this pattern gives you a way to step through the elements of an aggregate without having to know how
+		things are represented under the covers
+	
+	- An iterator object is responsible for keeping track of the current element
+		- It knows which elements have been traversed already
+	
+	- Once you have a uniform way of accessing the elements of all your aggregate objects, you can write polymorphic code
+		that works with any of these aggregates
+	
+	- Allows multiple traversals to be in progress concurrently
+	
+	- Places the task of traversal on the iterator object, not on the aggregate
+		- Simplifies the aggregate interface and implementation
+		- Places the responsibility where it should be
+		- Keeps the aggregate focused on the things it should be focused on (managing a collection of objects), not on iteration
+	
+		*When to use the iterator pattern ?*
+	
+	- When you want to provide a standard way to iterate over a collection and hide
+		the implementation logic from client program 
+		
+		- Logic for iteration is embedded in the collection itself and it helps client program to iterate over them easily
+		
+	- Use the pattern to support multiple traversals of aggregate objects
+	
+	- Use the pattern to support polymorphic iterations

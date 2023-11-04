@@ -1,0 +1,113 @@
+												  Decorator Design Pattern
+													   Overview
+																
+	- the decorator pattern will allow you to attach additional responsibilities to an object dynamically.
+		- Allows a user to add new functionality to an existing object without altering its structure.
+		
+	- Decorators provide a flexible alternative to sub-classing for extending functionality.
+	
+	- The main principle of this pattern says that we cannot modify existing functionalities but we can extends them.
+		- Open for extension but closed for modification.
+		
+	- The core concept applies when we want to add some specific functionalities to some specific object instead of to the whole classing.
+	
+	- Decorator is used to modify the functionality of an object at runtime.
+		- Other instances of the same class will not be affected by this, so individual object gets the modified behavior.
+		
+	- With the decorator, we want to add responsibilities to individual objects, not to an entire class.
+	
+	- One way to add responsibilities is with inheritance.
+		- We need to create a new class for new responsibilities.
+			- There will be many classes inside the system, which in turn can make the system complex.
+			
+	- Inheriting a border from another class puts a border around every subclass instance.
+		- Inflexible because the choice of border is made statically.
+		- A client cannot control how and when to dcorate the component with border.
+		
+	- A more flexible approach is to enclose the component in another object that adds the border.
+		- The enclosing object is called the decorator.
+		- Decorator conforms to the interface of the component it decorates.
+		
+	- We can add and remove responsibilities by simply attaching or detaching decorators.
+	
+						Examples
+														   
+    1- Suppose you already own a house.
+		- You want to add an additional floor.
+		- You do not want to change the architecture of ground floor (or existing floor).
+		- You want to change the design of the architecture for the newly added floor.
+			without affecting the existing architecture for existing floors.
+				- Use a Decorator
+				
+	- Many object oriented user interface toolkits use decorators to add graphical additions to widgets.
+		- You want to add properties like borders or behaviors like scrolling to any user interface component.
+		- Don't want to change the core functionality of the graphical user interface.
+	
+	2- Suppose we have a TextView object that displays text in a window.
+		- Textview has no scroll bars by default because we might not always need them.
+		- When we need scrool bars, we can use a ScrollDecorator to add them.
+		
+					Java i.o. packages example	
+												
+	- Streams are fundamental abstraction in most I/O facilities
+		- Can provide an interface for converting objects into a sequence of bytes or characters
+		- Lets us transcribe an object to a file or to a string in memory for retrieval later
+		
+	- The large number of classes in the java.io package is largely based on using a decorator
+		- Use decorators to add functionality for reading/writing data from/to a file
+	
+	- For example, BufferedInputStream and LineNumberInoutStream both extend FilterInputStream
+		- FilterInputStream acts as an abstract decorator class
+		
+					Advantages and drawbacks
+
+	- The biggest advantage of using this pattern is what we can add new functionality to a particular object without 
+		disturbing existing objects in the system.
+	
+	- More flexibility than static inheritance.
+		- Responsibilities can be added and removed at run-time simply by attaching and detaching them.
+		
+	- Decorators also make it easy to add a property twice.
+		- To give a Textview a double border, simply attach two BorderDecorators.
+		
+	- We can code incrementally.
+		- We make a simple class first and then one by one we can add decorator objects to them as needed.
+		- We don't need to take care of each and every possible scenario in the beggining.
+		
+	- One drawback may be that designs using this pattern often result in a large number of small classes that can be overwhelming.
+		- lots of little objects can be hard to learn and debug.
+	
+			Decorator as a structural pattern or Behavioral pattern ??
+									
+	- Many developers believe that the decorator should be classified as a behavioral pattern.
+	
+	- Structural patterns describe how classes and objects are composed to create new structures or new functionality.
+	
+	- The decorator pattern allwos you to compose objects by wrapping one object with another to provide new functionality.
+	
+	- The focus is on how you compose the objects dynamically to gain functionality.
+	
+	- The focus is *NOT* on the communication and interconnection between objects (behavioral patterns).
+	
+					When to use a Decorator ?
+												
+	- When you want to add responsibilities to an individual objects dynamically and transparently without affecting other objects.
+	
+	- When extension by sub-classing is impractical.
+	
+	- Sometimes a large number of independent extensions are possible and would produce an explosion of subclasses
+		to support every combination.
+		
+	- Or a class definition may be hidden or otherwise unavailable for sub-classing.
+	
+						Summary 
+															
+	- Inheritance is one form of extension, but not necessarily the best way to achieve flexibility in a design.
+	
+	- We should allow behavior to be extended without the need to modify existing code.
+	
+	- The decorator pattern provides an alternative to sub-classing for extending behavior.
+	
+	- A way to add additional behavior to an existing class dynamically.
+	
+	- Decoractors can result in many small objects in a design, and overuse can make your design more complex.														

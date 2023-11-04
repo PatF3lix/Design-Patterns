@@ -1,0 +1,255 @@
+											  Section 34
+										Java J2EE Patterns Overview
+			*Overview*
+	
+	- There are some patterns that we did not cover that i would like to talk about at a high level
+	
+	- Lets take a look at the following:
+		- Null object
+	
+	- J2EE Patterns
+		- Business Delegate Pattern
+		- Composite Entity Pattern
+		- Data Access Object
+		- Front Controler
+		- Intercepting Filter
+		- Service Locator
+		- Transfer Object
+	
+			*Null Object Pattern*
+	
+	- The intent of Null Object is to encapsulate the abscence of an object by providing a substitutable alternative that offers 
+		suitable default do nothing behavior
+	
+	- In this pattern, we create an abstract class specifying various operations to be done, a concontre classe extending this
+		class and a null object class providing do nothing implementation
+	
+	- Use the Null Object pattern when 
+		- An object requires a collaborator
+			- Makes use of a collaboration that already exists
+		- Some collaborator instances should do nothing
+			- You want to abstract the handling of null away from the client
+	
+	- The Null Object class is often implemented as a Singleton
+		- A null object usually doesn't have any state, its state can't change, so multiple instances are identical
+	
+		*Business Delegate Pattern*
+	
+	- Used to decouple the presentation tier and the business tier
+		- used to reduce communication or remote lookup functionality to business tier code in presentation tier code
+	
+	- Acts as a client-side business abstraction
+		- Provides an abstraction for, and thus hides, the implementation of the business
+	
+	- Use the pattern when:
+		- You want loose coupling between presentation and business tiers
+		- You want to orchestrate calls to multiple business services
+		- You want to encapsulate service lookups and service calls
+	
+	- Components include:
+		
+		- Client
+			- Presentation tier code may be Jsp, servlet or Ui java code
+		
+		- Business Delegate
+			- A single entry point class for client entities to provide access to business service methods
+		
+		- Lookup Service
+			- Responsible to get relative business implementation and provide business object access to nusiness delegate object
+		
+		- Business Service
+			- Concrete classes implement this business service to provide actual business implementation logic 
+		
+			*Composite Entity Pattern*
+	
+	- A Composite entity bean which represents a graph of objects
+	
+	- When a composite entity is updated
+		- Internally dependent objects bean get updated automatically as being managed by EJB entity bean
+	
+	- The following are the participants:
+		
+		- Context:
+			
+			- Entity beans are not intended to represent every persistent object in the object model
+			- Enity beans are better suited for coarse-grained persistent business object
+		
+		- Composite Entity
+			
+			- Primary entity bean
+			- Can be coarse grained or can contain a coarse grained object to be used for persistence purpose
+		
+		- Coarse-Grained Object
+			
+			- Contains dependent objects
+			- Has it own life cycle and also manages life cycle of dependent objects
+		
+		- Strategies
+		
+			- Represents ho to implement a Composite Entity
+		
+			*Data Access Object Patern*
+	
+	- Many real-world J2EE applications need to use persistent data at some point
+	
+	- Access to data varies depending on the source of the data
+	
+	- Access to persistent storage varies greatly depending on the type of storage 
+		(relational databases, object-oriented databases, flat files, and so forth)
+			and the vendor implementation
+	
+	- The data may reside in mainframe systems, LightweightDirectory Access Protocol (LDAP) repositories, etc)
+	
+	- This pattern is used to separate low level data accessing API or operations from high level business services
+	
+	- Data Access Object Interface
+		- This interface defines the standard operations to be performed on a model object(s)
+	
+	- Data Access Object concrete class
+		- Implements above interface and is responsible to get data from a data source which can be a database /xml
+			or any storage mechanism
+	
+	- Model Object or Value Object
+		- Simple POJO (Plain Old java Object) containning get/set methods to store data retrieved using DAO class
+	
+			*Front Controller Pattern*
+	
+	- All requests that come for a resource in an application will be handled by a single handler and then dispatched to the appropriate
+		handler for that type of requests
+	
+	- Not used as widely since the MVC pattern was released
+	
+	- The presentation-tier request handling mechanism must control and coordinate processing of each user across
+		multiple requests
+	
+	- When a user accesses the view directly without going though a centralized mechanism, two problems may occur
+		- Each view is required to provide its own system services, often resulting in duplicate code
+		- View navigation is left to the views which may result in mixed view content and view navigation
+	
+	- Also, distributed control is more difficult to maintain, since changes will often need to be made in numerous places
+	
+	- This pattern will ensure a system has a centralized access point for presentation-tier request handling to support
+		the integration of system services, content retrieval, view management, and navigation
+	
+			*Front Controller Participants*
+	
+	- Controller
+		
+		- The initial contact point for handling all requests in the system
+		- May delegate to a helper to complete authentication and authorization of a user or initiate contact retrieval
+	
+	- View 
+		
+		- represents and displays information to the client
+		- Retrives information from a model
+		- Helpers support views by encapsulating and adapting the underlying data model for use in the display 
+	
+	- Dispatcher
+		
+		- Responsible for helping a view or controller complete its processing
+		- Have numerous responsibilities 
+			- Gathering data required by the view and storing this intermediate model
+	
+	- Helper 
+		
+		- Responsible for helping a view or controller complete its processing
+		- Have numerous responsibilities
+			- gahering data required by the view and storing this intermediate model
+	
+			*Intercepting filter design pattern*
+	
+	- A JavaEE pattern which creates pluggable filters to process common services in standard manner without requiring
+		changes to core request processing code
+	
+	- Used when we want to do some pre-processing / post-processing with request or response of the application
+		- Filters are defined and applied on the request before passing the request to actual target application
+		- Filters can do the authentication / authorization / logging or tracking of request and then pass the requests
+			to corresponding handlers
+	
+	- Participants include the following:
+		
+		- Filter
+			
+			- Performs certain tasks prior or after execution of request by request handler
+		
+		- Filter Chain
+			
+			- Carries multiple filters and help to execute them in defined order on target
+		
+		- Target
+			
+			- The request handler 
+		
+		- Filter manager
+		
+			- Manages the filters and filter chain
+		
+		- Client
+			
+			- The object who sends requests to the target object
+			
+			*Service Locator Design Pattern*
+	
+	- The service locator pattern is a relatively old pattern that was very popular with java EE
+		- Goal of this pattern is to improve the modularity of your application by removing the dependency between
+			the client and the implementation of an interface
+	
+	- Used whenever we want to locate/fetch various services using JNDI (Java Naming and Directory Interface) which,
+		typically, is a redundant and expensive lookup
+	
+	- Encapsulates the processes involved in obtaining a service with a strong abstraction layer
+		- Uses a central registry known as the "service locator" which on request returns the information necessary to perform
+			a certain task 
+	
+	- The ServiceLocator is responsible for returning instances of services when they are requested for by the service
+		consummers or the service clients
+	
+	- This pattern addresses this expensive lookup by making use of catching techniques
+		- The very first time a particular service is requested, the service Locator looks up in JNDI, fetches the relevant service
+			and then finally caches this service object
+	
+	- Further lookups of the same service via Service Locator is done in its cache which improves the performance of 
+		the application to a great extent
+	
+			*Participants*
+	
+	- Service
+		
+		- Actual service which will process the request
+		- reference of such service is to be looked upon in JNDI
+	
+	- Context /Initial Context
+		
+		- JDNI Context carries the reference to service used for lookup purpose
+	
+	- Service Locator
+		
+		- A single point of contact to get services by JNDI lookup caching the services
+	
+	- Cache
+		
+		- Stores references of services to reuse them 
+	
+	- Client
+		
+		- The object that invokes the service via ServiceLocator
+	
+			*Transfer Object Pattern*
+	
+	- A frequently used design pattern when we want to pass data with multiple attributes in one shot 
+		from client to server, to avoid multiple calls to a remote server
+	
+	- A simple POJO class having getter/setter methods and is serializable so that it can be transferred over
+		the network
+			- Doesn't have any behavior
+	
+	- A server side business class normally fetches data from the database and fills the POJO and then
+		sends it to the client
+	
+	- The following are participants of this pattern:
+		- Business Object
+			- Fills the transfer object with data 
+		- Transfer Object
+			- Simple POJO having methods to set/get attributes only
+		- Client
+			- Either requests or sends the Transfer Object to business Object

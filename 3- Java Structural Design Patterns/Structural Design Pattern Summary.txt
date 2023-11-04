@@ -1,0 +1,72 @@
+					Structural Patterns Summary
+					
+	 Adapter vs Bridge
+	
+		- Both promote felcibility by providing a level of indirection to another object.
+		- Both involve forwarding requests to this object from an interface other than its own.
+	
+	- The key difference between these patterns lies in their intents.
+	
+		- Adapter focuses on resolving incompatibilities between two existing interfaces.
+		- The bridge bridges an abstraction and its (potentially numerous) implementations.
+			- Provides a stable interface to clients even as it lets you vary the classes that implement it.
+			
+	- Adapter and Bridge are often used at different points in the software lifecycle.
+	
+		- An adapter often becomes necessary when you discover that two incompatible classes should work together.
+			- To avoid replicating code.
+		- The user of abridge understands up-front that an abstraction must have several implementations,
+			both may evolve independently.
+		- The Adapter pattern makes things work after they are designed and bridge makes them work before they are.
+	
+	Composite vs Decorator
+	
+		- Composite and decorator have similar structure diagrams.
+			- Both rely on recursive composition to organize an open-ended number of objects.
+		
+		- Decorator is designed to let you add responsibilities to objects without subclassing.
+			- Avoids the explosion of subclasses that can arise from trying to cover every combination of responsibilities statically.
+		
+		- Composite has different intent than the decorator.
+			- Focuses on structuring classes so that many related objects can be treated uniformly.
+				- multiple objects can be treated as one.
+			- Focus is not on embellishment but on representation.
+		
+		- The Composite and Decorator patterns are often used together.
+			- Both lead to kind of design in which you can build applications just by plugging objects together without defining
+				any new classes.
+			- Consists of an abstract class with some subclasses that are composites, some that are decorators, and some that
+				impliment the fundamental building blocks of the system.
+				- Both composite is a ConcretComponent.
+				- A decorator is a Leaf.
+	
+	Decorator vs Proxy
+	
+		- Both patterns describe how to provide a level of indirection to an object
+		
+		- Both implimentation keep a reference to another object to which they forward requests
+		
+		- Differ by their intent.
+		
+		- The proxy pattern composes an object and provides an identical interface to clients.
+			- Not concerned with attaching or detaching properties dynamically
+			- Not designed for reursive composition.
+			- Its intent is to provide a stand-in for a subject when it is inconvenient or undesirable
+				to access the subject directly.
+				- It lives on a remote machine, has restricted access, or is persistent.
+		
+		- The decorator pattern is when the component provides only part of the functionality, and one or more
+			decorators furnish the rest.	
+			- Address the situation where an object's total functionality cannot be determined at compile-time
+			- Recursive composition an essential part.
+				- Not the case in Proxy.
+					- Focuses on one relationship between the proxy and its subject and that relationship
+						can be expressed statically.
+		
+		- Differences do not mean that these patterns cannot be combined.
+			- Might envision a proxy-decorator that adds functionality to a proxy, or a decorator-proxy
+				that embellishes a remote object.
+			
+		
+		
+	

@@ -1,0 +1,83 @@
+											  Section 25
+										Mediator Design Pattern 
+		
+		*Overview*
+		
+	- The mediator design pattern defines an object that encapsulates how a set of objects interact
+		- promotes loose coupling by keeping objects from referring to each other explicitly
+			- We can reduce the direct interconnections among objects
+		- lets you vary their interaction independently
+	
+	- A mediator is the one who takes the responsibility of cummunication among a group of objects
+		- Acts as an intermediary who can track the communication between two objects
+		- The other objects in the system are also aware of this mediator
+			- They know that if they need to communicate among themselves, they need to go through the mediator
+	
+	- Used to reduce communication complexity between multiple objects or classes
+	
+		*Examples*
+		
+	- An air traffic controller is great example
+		- The airport control room works as a mediator for communications between different flights
+		- Mediator works as a router between objects
+			- Has its own logic to provide ways of communication
+	
+	- In airplane application, before taking off the flight undergoes a series of checks
+		- Checks confirm that all components/parts (which are dependent on each other) are in perfect condition
+	
+	- You could use a mediator for a house of the future where appliances talk to each other
+		- When a user stops hitting the snooze button, the alarm clock tells the coffee maker to start brewing
+		- Turn off the sprinkler 15 minutes before a shower is scheduled
+		- Set the alarm early on trash days
+	
+	- Commonly used to coordinate related GUI components/parts
+	
+		*JDK Examples*
+	
+	- java.util.Timer class scheduleXXX() methods
+	
+	- Java Concurrency Executor execute() methods
+	
+	- java.lang.reflect.Method invoke() method
+	
+	- Java Message Service (JMS) uses Mediator pattern along with Observer pattern
+		to allow applications to subscribe and publish data to other applications
+	
+		*What problems the mediator can solve ?*
+	
+	- Object-oriented design encourages the distribution of behavior among objects
+	
+	- Such distribution can result in an object structure with many connections between objects
+		- In the worst case, every object ends up knowing about every other
+	
+	- Lots of interconnections make it less likely that an object can work without the support of others
+		- It can be difficult to change the system's behavior in any significant way
+			- Since behavior is distributed among many objects
+	
+	- If we need to make somekind of change, it becomes a challenging task
+	
+	- The mediator pattern will solve the above problems
+	
+		*Advantages*
+	
+	- Increase the reusability of the objects supported by the mediator by decoupling them from the system
+	
+	- Simplifies maintenance of the system by centralizing control logic
+	
+	- Simplifies and reduces the variety of messages sent between objects in the system
+	
+	- Allows you to replace one object in the structure with a different one without affecting the classes and interfaces
+	
+	- We shouldn't use mediator pattern just to achieve loose-coupling
+		- If the number of mediators grows, it then becomes hard to maintain them
+	
+		*When to use the Mediator*
+	
+	- Use the mediator pattern to centralize complex communications and control between related objects
+	
+	- When a set of objects communicate in well-defined but complex ways
+		- The resulting interdependencies are unstructured and difficult to understand
+		
+	- When reusing an object is difficult because it refers to and communicates with many other objects
+	
+	- When a behavior that is distributed between several classes should be customizable without a lot of sub-classing		

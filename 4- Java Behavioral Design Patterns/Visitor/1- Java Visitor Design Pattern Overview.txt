@@ -1,0 +1,52 @@
+											  Section 31
+										Visitor Design Pattern
+
+			*Overview*
+		
+	- The visitor design pattern represents an operation (method) to be performed on the elements of an object structure
+		(collection, list, etc)
+			- Lets you define a new operation without changing the classes of the elements on which it operates
+	
+	- Helps us to add new functionalities to an existing object structure in such a way that the old structure remains
+		unaffected by these changes
+			- We can follow the open/close principle
+	
+	Example
+	
+	- Consider a taxi booking scenario
+		- Taxi arrives at the defined location for the pickup
+		- Once we enter into it, the visiting taxi takes control of the transportation
+			- It can choose a different way toward our destination and we may or may not have
+			any prior knowledge of that way
+	
+	- A shopping cart where we can add different type of items (Elements)
+		- When we click on checkout button, it calculates the total amount to be paid
+		- We can move out the calculation logic from an item class to another class using the
+			visitor pattern (less coupling)
+	
+	- This pattern is very useful when plugging into public APIs
+		- Clients can perform operations on a class with a visiting class without modidying the source
+	
+			*More Overview*
+	
+	- Allows for one or more operations to be applied to a set of objects at
+		runtime, decoupling the operations from the object structure
+	
+	- Used when we have to perform an operation on a group of similar kinds of objects
+		- We can move the operational logic from the objects to another class
+	
+	- Useful for adding new operations without affecting the existing structure
+	
+			*When to use the visitor patterns*
+	
+	- When an object structure (collection or list) contains many classes of objects with differing interfaces,
+		and you want to perform operations on these objects that depend on their concrete classes
+			- Visitor lets you keep related operations together by defining them in one class
+				- Encourages cleaner code
+	
+	- When you want to decouple some logical code from the elements that you are using as input
+	
+	- When you want to add capabilities to a composite of objects and encapsulation isn't important
+	
+	- When the object structure is shared by many applications, use the visitor pattern to put operations
+		in just those applications that need them

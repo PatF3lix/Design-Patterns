@@ -1,0 +1,59 @@
+											Class Adapter Implementation
+													
+	- We have defined the adapter pattern, however, there are actually two kinds of adapters
+	
+		- Object Adapters
+			- What we have been studying up to this point
+			- Relies on one Object (The adapting object) containing another (the adapted object)
+				(Composition)
+				
+		- Class Adapters
+			- Another way to implement the adapter pattern (uses multiple inheritance)
+			
+		- A class Adapter is less of a focus in Java because you need multiple inheritance
+			to implement it
+			- Not possible in Java
+			
+		- That does not mean you might not encounter a need for a class adapters down the road
+			- Can utilize interfaces as a workAround the lack of support for multiple inheritance in Java
+			
+												Class Adapters
+												
+		- A class adapter is very similar to an Object adapter
+			- The class adapter will subclass the Target and the Adaptee
+			- The object adapter will use composition to pass requests to an Adaptee
+			- Composition versus inheritance
+			
+		- A Class Adapter works by creating a new class wich subclasses publicly from an abstract
+			class to define its interfaces
+			- Subclasses privately from our existing class to access its implementation
+			- Each wrapped method calls its associated, privately inherited method
+			
+		- A class adapter adapts Adaptee to Target by committing to a concrete Adaptee class
+			- Will not work when we want to adapt a class and all its subclasses
+			
+		- A class adapter lets the Adapter override some of the Adaptee's behavior since Adapter is a subclass of Adaptee
+		
+													Summary
+													
+		- An advantage of Object Adapter is that it can adapt an Adaptee class and any of its subclasses
+			(because of composition)
+			- A class Adapter is commited to one specific adaptee class
+			
+		- An adavantage of a class Adapter is that it doesn't need to re-implement its entire adaptee	
+			- Can override the behavior of an adaptee if it needs to be it is just sub-classing
+			
+		- The object Adapter is more flexible
+			- Composition is also preferred over inheritance
+			- Write very little code to delegate to the adaptee
+		
+		- A class adapter is more efficient
+			- There is only one, not an adapter and an adaptee
+			
+		- An object Adapter can add new behavior and everything works with the adaptee class and all of its subclasses
+		
+		
+			
+		
+				
+													

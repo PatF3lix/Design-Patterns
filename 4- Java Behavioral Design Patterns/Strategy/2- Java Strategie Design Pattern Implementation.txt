@@ -1,0 +1,79 @@
+											  Section 29
+										Strategy Design Pattern ImplementationS
+		
+		*Participants*
+		
+	- Stategy
+		
+		- Declares an interface common to all supported algorithms
+		- Context uses this interface to call the algorithm defined by a ConcreteStrategy
+		- Specifies how the different algorithms are used
+		
+	- ConcreteStrategy
+		
+		-Implements the algorithm using the Strategy interface
+	
+	- Context
+		
+		- Is configured with a ConcretStrategy object
+			- Maintains a reference to a strategy object or gets passed as a parameter to a method
+		- May define an interface that lets strategy access its data
+	
+		- Context uses a specific ConcreteStrategy
+	
+	- Strategy and Context interact to implement the chosen algorithm
+		
+		- Sometimes Strategy must query Context
+		- Context forwards request from its client to strategy
+			- Clients usually create and pass a ConcreteStrategy object to the context
+			- Clients interact with the context excusively
+			- Often a family of ConcreteStrategy classes for a client to choose from
+	
+	
+		*Advantages of implementation*
+	
+	- A family of algorithms can be defined as a class hierarchy
+		- Can be used interchangeably to alter behavior without changing its architecture
+		- Inheritance can help factor out common functionality of the algorithms
+	
+	- An alternative to subclassing
+		- Inheritance offers another way to support a variety of algorithms or behaviors
+		
+		- You can subclass a Context class directly to give it different behaviors
+			- Hard-wires the behavior into Context
+			- Mixes the algorithm implementation eith Context's 
+				- Context is harder to understand, maintain, and extend
+			- You cannot vary the algorithm dynamically 
+			- You wind up with many related classes whose only difference is the algorithm or behavior they employ
+		
+		- Encapsulating the algorithm mechanism in sperate Strategy classes
+			- Lets you vary the algorithm independently of its context
+				- Easier to switch, understand, and extend
+	
+	- Data structures used for implementing the algorithm are completely encapsulated in Strategy classes
+		- The implementation of an algorithm can be changed without affecting the Context class
+		- Eliminates conditional statements
+	
+	- A choice of implementations
+		- Strategies can provide different implementations of the same behavior
+		- Client can choose among strategies with different time and space trade-offs
+	
+	- Client must be aware of different Strategies
+		- has a potential drawback in that a client must understand how Startegies differ before it can select the appropriate one
+		- Client might be exposed to implementation issues
+	
+		*Implementation Issues*
+	
+	- The Strategy and context interfaces must give a ConcreteStrategy efficient access to any data it needs from a context, and vice versa
+		- Have Context pass data in parameters to Strategy operations
+			- Keeps Strategy and Context decoupled
+	
+		- Context can pass itself as an argument to Strategy operations
+			- Lets the strategy callback on the context as required
+	
+	- Context class may be simplified if it is meaningful not to have a strategy object
+		- Context checks to see if it has a Strategy object before accessing it
+			- If there is one, then Context uses it normally
+			- If there is no Strategy, then context carries out default behavior
+		- The benefit of this approach is that clients don't have to deal with strategy objects at all
+			unless they don't like the default behavior

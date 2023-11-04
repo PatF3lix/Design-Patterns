@@ -1,0 +1,100 @@
+											  Section 30
+										Template Method Design Pattern 
+		
+			*Overview*
+		
+	- The template method defines the skeleton of an algorithm in an operation, deferring some steps to subclasses
+		- Lets subclassses redefine certain steps of an algorithm without changing the algorithm's structure
+		- Helps us generalize a common process, at an abstract level, from a set of different procedures
+		
+	- All about creating a template for an algorithm
+		- A template is just a method that defines an algorithm as a set of steps
+		- One or more of these steps is defined to be abstract (a method stub) and implemented by a subclasses
+			- Ensures the algorithm's structure stays unchaned, while subclasses provide some part of the implementation
+	
+	- Enables you to define the sequence of steps and then override those steps that need to change
+	
+	- Software reuse is the fundamental goal of this method
+		- This is why the pattern is used in many class libraries and framework development
+	
+	- One of the more common patterns in use today
+	
+	Examples
+		
+	- In the real world templates are used all the time
+		- For architecture plans, and throughout the engineering domain
+		- A template plan may be defined which is then built on with further variations
+	
+	- Suppose we want to make pizza
+		- The basic mechanism is the same, but extra materials are added based upon the customer's choice
+		- Whether he/she wants a vegetarian pizza or non-vegetarian pizza
+	
+	- For an engineering student, in general, most of the subjects in the first semester are common for all concentrations
+		- Later, additional papers are added in his/her course based on his/her specialization (computer science, electronic, etc..)
+	
+	- Suppose we want to provide an algorithm to build a house
+		- The steps needed to be performed to build a house are building foundation, building pillars, building walls and windows
+		- The important point is that we cannot change the order of execution
+			- We cannot build windows before building the foundation
+		- So in this case we can create a template method that will use different methods to build the house
+			- Building the foundation for a house is the same for all type of houses, whether its a wooden house or a glass house
+			- We can provide a base implementation for this, if subclasses want to override this method, they can but mostly its
+				is common for all the types of houses
+	
+	- Another example would be the methods for connecting and querying Oracle or Sql server datbases
+		- The methods may be different but, they share the same conceptual process
+	
+	- Examples in the JDk include
+	
+		- Non-abstract methods of Java.io.InputStream, java.io.OutputStream, java.io.Reader and java.io.Writer
+		- Non-abstract methods of java.util.AbstractList, java.util.AbstractSet and java.util.AbstractMap
+		- The arrays class uses it for sorting, JFrame uses update() as a template method,
+		- Subclasses of the JFrame use paint(Graphic g) as their hook method
+	
+	
+			*Often used in frameworks*
+	
+	- This pattern shows up so often because it is a great design tool for creating frameworks
+		- The framework controls how something gets done
+		- Leaves the person using the framework to specify your own details about what is actually happening
+			at each step of the framework's algorithm
+	
+	- Consider an application framework that provides Application and Document classes
+		- The Application class is responsible for opening existing documents stored in an external format,
+			such as a file
+		- A Document object represents the information in a document once it is read from the file
+	
+	- Applications built with the framework can subclass Application and Document to suit specific needs
+		- A drawing application defines Draw Application and DrawDocuments subclasses
+		- A spreadsheet application defines Spreadsheet-Application and SpreadsheetDocument subclasses
+	
+			*When to use this pattern ?*
+	
+	- When you need to support multiple algorithms that behave conceptually the same but have different	
+		implementations for each of their steps
+	
+	- When you want to avoid code duplication in an algorithm
+		- Implement variations of the algorithm in subclasses
+		- A good example of "refactoring to generalize"
+		- First Identify the differences in the existing code then separate the differences into new operations
+			- You then replace the Differing code with a template method that calls one of these new operations
+	
+	- When you want to control at what points sub classing is allowed
+		- Define a template method that calls "hook" operations at specific points, thereby permitting extensions
+			only at those points
+	
+	- When behavior of an algorithm can vary, you let subclasses implement the behavior through 
+		overriding
+	
+			*Summary*
+	
+	- Template method should consists of certain steps whose order is fixed
+	
+	- For some of the methods, implementation differs from the base class to subclass
+	
+	- The template method gives us an important technique for code reuse
+	
+	- The strategy and Template Method both encapsulate algorithms
+		- One by inheritance and one by composition
+	
+	- The Factory method is a specialization of the Template Method

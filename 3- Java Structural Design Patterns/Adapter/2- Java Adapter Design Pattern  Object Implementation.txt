@@ -1,0 +1,59 @@
+
+												Object Adapter Implementation
+												
+		    _________________
+		   |_____ Client ____|         _______________
+		   |_________________|------> | <<Interface>> |     	The Adapter implements
+					      |___ Target ____|  <----   the target interface.
+		  The client sees only        | request()     |                   |
+		  the target interface.       |_______________|                   |
+					             ^                            |
+						     |                            |
+					       ______|________	                  |
+					      |___Adapter____ |   <---------------/     __________________
+					      | request ()    |----------------------> |_____Adaptee______|
+					      |_______________|             ^          | specificRequest()| <---- All request get
+									    |          |__________________|       delegated to the 
+						       Adapter is composed-/                                         Adaptee.
+					                with the Adaptee.
+												  							  
+													Participants :
+			- Target
+				- Defines the domain-specific interface that client uses.
+				
+			- Client
+				- Collaborates with objects conforming to the Target interface.
+				
+			- Adaptee
+				- Defines an existing interface that needs adapting.
+				
+			- Adapter
+				- Adapts the interface of Adaptee to the Target interface.
+				- Involves a single class which is responsible to join functionalities
+					of independent or interface.
+					
+													 Client Usage:
+		
+			- Client makes a request to the adapter by calling a method on it using the target interface
+			
+			- The Adapter translates the request into one or more calls on the adaptee using the adaptee interface
+			
+			- The client receives the results of the call and never knows there is an adapter doing the translation
+			
+			- Essentially, client call operations on an Adapter instance
+				- In turn, the Adapter calls adaptee operations that carry out the request
+				
+													    Summary :
+														
+			- Adapters vary in the amount of work they do to adapt adaptee to the Target interface
+			
+				- Simple interface conversion 
+					(changing the names of operations to supporting an entirely different set of operations)
+				- The amount of work the Adapter does depends on how similar the target interface is to the adaptee's
+			
+			- Adapter frees you from worrying about existing interfaces
+			
+			- If i have a class that does what i need, I know that i can always use the adapter
+				pattern to give it the correct interface
+			
+			

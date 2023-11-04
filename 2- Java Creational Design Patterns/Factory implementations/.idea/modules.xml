@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Abstract_Creator_Implementation/Abstract_Creator_Implementation.iml" filepath="$PROJECT_DIR$/Abstract_Creator_Implementation/Abstract_Creator_Implementation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Abstract_Factory_Pattern/Abstract_Factory_Pattern.iml" filepath="$PROJECT_DIR$/Abstract_Factory_Pattern/Abstract_Factory_Pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Builder_Implementation/Builder_Implementation.iml" filepath="$PROJECT_DIR$/Builder_Implementation/Builder_Implementation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Factory.iml" filepath="$PROJECT_DIR$/.idea/Factory.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Factory_Concrete_Creator/Factory_Concrete_Creator.iml" filepath="$PROJECT_DIR$/Factory_Concrete_Creator/Factory_Concrete_Creator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Factory_Static_Method_Creator/Factory_Static_Method_Creator.iml" filepath="$PROJECT_DIR$/Factory_Static_Method_Creator/Factory_Static_Method_Creator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Prototype_Implementation/Prototype_Implementation.iml" filepath="$PROJECT_DIR$/Prototype_Implementation/Prototype_Implementation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Singleton_Bill_Pugh_Implementation/Singleton_Bill_Pugh_Implementation.iml" filepath="$PROJECT_DIR$/Singleton_Bill_Pugh_Implementation/Singleton_Bill_Pugh_Implementation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Singleton_Double_Checked_Locking_Implementation/Singleton_Double_Checked_Locking_Implementation.iml" filepath="$PROJECT_DIR$/Singleton_Double_Checked_Locking_Implementation/Singleton_Double_Checked_Locking_Implementation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Singleton_Eager_Evaluation_Implimentation/Singleton_Eager_Evaluation_Implimentation.iml" filepath="$PROJECT_DIR$/Singleton_Eager_Evaluation_Implimentation/Singleton_Eager_Evaluation_Implimentation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Singleton_Lazy_Initialization_Implementation/Singleton_Lazy_Initialization_Implementation.iml" filepath="$PROJECT_DIR$/Singleton_Lazy_Initialization_Implementation/Singleton_Lazy_Initialization_Implementation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Singleton_Synchronized_Implementation/Singleton_Synchronized_Implementation.iml" filepath="$PROJECT_DIR$/Singleton_Synchronized_Implementation/Singleton_Synchronized_Implementation.iml" />
+    </modules>
+  </component>
+</project>

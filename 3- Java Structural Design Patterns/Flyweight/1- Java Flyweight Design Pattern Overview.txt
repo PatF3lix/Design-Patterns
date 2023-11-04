@@ -1,0 +1,112 @@
+									 Flyweight Design Pattern
+											Overview
+	- The flyweight pattern uses sharing to support a large number of fine-grained objects efficiently.
+	
+	- The pattern is primarily used to reduce thenumber of objects created.
+		- Less number of objects reduces the memory usage.
+		- Memory usage is also minimized by sharing data as much as possible.
+			- crucial for low memory devices, such as mobile devices or embedded systems.
+		- Performance is also increased.
+	
+	- Tries to reuse already existing similar kind objects by storing them.
+		- One instance of a class can be used to provide many "virtual instances".
+		- Creates a new Object when no matching object is found.
+		
+	- Flyweight objects are shared and are immutable.
+		- Cannot be modified once they have been constructed.
+		
+	- Flyweight objects are used in multiple contexts simultaneously and act as an independent object in each context.
+		- Indistinguishable from an instance of the object that is not shared.
+		
+										   Examples
+
+	1- Suppose two people were each searching for an apartment so that they could stay nearby their office.
+		- Neither of them was satisfied with the available options.
+		- One day, they found a place with all kind of facilities that they both desired.
+			- There were two constrains.
+				- There is only one appartement.
+				- The rent is high.
+		- So they decided to stay together and share the rent.
+	
+	2- The graphical representation of characters in word processors is common example of this pattern.
+	
+	3- A computer game where we have a large number of participants.
+		- Looks are the same but differ from each other in their performances (or color, armor, weapons, etc..).
+		
+	4- All the wrapper classes valueOf() method uses cached objects.
+		- Java String class String Pool implimentation.
+		
+									** Important **
+								Intrinsic vs. extrinsic state
+	
+	- Two common terms are used when learning about the flyweight pattern.
+		- intrinsic state/properties - can be stored in the flyweight object and is shareable.
+		- extrinsic state/properties - depends on the flyweight's context and is not shareable.
+			- Client objects define state and pass the extrinsic state to the flyweight.
+	
+	Intrinsic State Definition: 
+		- intrinsic state is state that represents the essential data of an object, such as character content.
+		- intrinsic - state that naturally belongs to the 'FlyWeight' 
+			object and thus should be permanent or immutable (internal) or context free.
+	
+	Extrinsic State Definition
+		- state that belongs to the context of the object (external) or unique to that instance.:
+		- extrinsic state are variants applied to the object with its intrinsic date / essential date, such as styling.
+		
+							What is intrinsic vs extrinsic?
+		
+		- The intrinsic value of something is said to be the value that that thing has “in itself,”
+			or “for its own sake,” or “as such,” or “in its own right.”
+			Extrinsic value is value that is not intrinsic.
+			Many philosophers take intrinsic value to be crucial to a variety of moral judgments.
+			
+	- Lets look at an example that demonstrates the differences between these two terms.
+	
+	- A text editor application where we enter characters
+		- An object of Character class is created.
+		- The attributes of the Character class are name, font, and size.
+		- We don't need to create an object every time a cient enters a character since letter 'B'
+			is no different from another 'B'.
+			
+	- If a client again types 'B' we simply return the object which we have already created before
+		- All of these are intrinsic states (name, font, size).
+		- They can be shared among the different objects as they are similar to each other.
+	
+	- If we add more attributes to the Character class
+		- row and column.
+			- Specify the position of a character in the document.
+		- these attributes will not be similar even for the same characters.
+			- No two characters will have the same position in a document.
+		- These states are termed as EXTRINSIC states and cannot be shared amongst objects.
+		
+									** Important END **
+		
+								  Advantages and drawbacks
+	
+	- Reduces the number of object instances at runtime.
+		- Saves memory.
+	
+	- Centralizes state for many "virtual" objects into a single location.
+	
+	- Can control many instances of a class in the same way.
+	
+	- One drawback is that single, 
+		logical instances of the class will not be able to behave independently from the other instances.
+		
+								 When to use the flyweight
+
+	- When an application uses a large number of objects 
+	
+	- When storage costs are high because of the sheer quantity of objects
+	
+	- When many groups of objects may be replaced by relatively few shared objects
+		(Once extrinsic state is removed)
+		
+	- When the application doesn't depend on object idetity
+		- Since flyweight objects may be shared, identity tests will return true for
+			conceptually distinct objects
+	
+	
+		
+	 
+	 

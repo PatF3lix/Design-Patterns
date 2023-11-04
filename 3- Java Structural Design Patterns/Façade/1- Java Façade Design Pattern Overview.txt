@@ -1,0 +1,117 @@
+											Façade Design Pattern
+												  Overview
+																  
+	- The Façade design pattern provides a unified interface to a set of interfaces in a system.
+		- Defines a higher-level interface that makes the subsystem easier to use.
+			- Hide the complexities of the subsystem interfaces.
+		- Does not add any functionality.
+		
+	- As the name suggests, it means the face of the building.
+		- Poeple walking past the road can only see this glass face of the building.
+		- They do not know anything about it, the wiring, the pipes and other complexities.
+		- Hides all the complexities of the building and displays a friendly face.
+		
+	- The pattern is basically saying that we need to interact with a system that is easier than the current.
+		method, or we need to use the system in a particular way.
+		- Such as a 3D drawing program in a 2D way.
+		
+	- Façade design pattern is more like a helper for client applications.
+		- Does not hide subSystem interfaces from client.
+	
+	- Whether to use a façade or not is completely dependent on client code.
+
+	- Can be applied at any point of developement, usually when the number of interfaces grow and system gets complex.
+	
+	- Subsystem interfaces are not aware of façade and they should not have any reference to the façade interface.
+		
+					Examples
+					
+	1- Suppose you are going to organize a birthday party and you have invited 100 people.
+		- You can go to any party organizer and let him/her know the minimum information.
+			- Party type, date and time of the party, number of attendees, etc..
+		- The organizer will do the rest for you.
+			- You do not even think about the other tasks such as:
+				- Decorating the party room.
+				- Whether people will take food from self-help counter or will be served by a caterer, and so on ..
+				
+	2- Another good example can be the startup of a computer.
+		- When a computer starts up, it involves the work of cpu, hard drive, etc.
+			- The Façade will wrap the complexity of each tasks.
+	
+	3- The JDBC "Java™ database connectivity" can be called a façade.
+		- Clients create connections using the "Java.sql.Connection" interface.
+		- The implementation of which we are not concerned about.
+			- Implimentation is left to the vendor of driver.
+			
+		"Java™ database connectivity (JDBC) is the JavaSoft specification of a standard application programming interface (API)
+			that allows Java programs to access database management systems."
+			
+		What is a Driver :
+
+		"In the most fundamental sense,
+		a driver is a software component that lets the operating system and a device communicate with each other.".
+		
+	
+				Why the façade ?
+	
+	- Subsystem are groups of classes, or groups of classes and other subsystems.
+	
+	- Structuring a system into subsystems helps reduce complexity.
+	
+	- The interface exposed by the classes in a asubsystem or set of subsystems can become quite complex.
+	
+	- One way to reduce this complexity is to introduce a façade object.
+		- Provides a single, simplified interface to the more general facilities of a subsystem.
+		
+	- If you need the power of the complex subsystem, it is still there for you to use.
+	
+					Advantages
+					
+	- Shields clients from subsystem components.
+		- reduces the number of objects that clients deal with.
+		- makes the subsystem easier to use.
+		
+	- The pattern supports loose coupling.
+		- We emphasize the abstraction and hide the complex by exposing a simple interface.
+		- decouples a client from a subsystem of components.
+	
+	- Façade help layer a system and the dependencies between objects.
+		- can eliminate complex or circular dependencies.
+	
+	- reduces compilation dependencies in large software systems.
+	
+	- simplifies porting systems to other platforms.
+	
+	- Doesn't prevent applications from using subsystem classes if they need to
+		- Can choose between ease of use and generality.
+		
+				When to use the Façade
+				
+	- When you want to provide a simple interface to a complex subsystem.
+	
+	- When there are many dependencies between clients and the implementation classes of an abstraction.
+		- Introduce a façade to decouple the subsystem from clients and other subsystems.
+		- Promotes subsystem independence and portability.
+		
+	- When you want to layer your subsystems.
+		- Use a façade to define an entry point to each subsystem level.
+		
+		
+				Façade vs Adapter
+				
+	- When you need to use an existing class and its interface is not the one you need, use and adapter.
+	
+	- When you need to simplify and unify a large interface or complex set of interfaces, use a façade.
+	
+	- An adapter changes an interface into one a client expects.
+	
+	- A façade decouples a client from a complex subsystem.
+	
+	- An Adapter wraps an object to change its interface.
+	- A Decorator wraps an object to add new behaviors and responsibilities.
+	- A Façade "wraps" a set of objects to simplify.
+	
+	
+		
+		
+		
