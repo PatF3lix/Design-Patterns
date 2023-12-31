@@ -2,7 +2,7 @@
  
 Description:
 
-Topics:This Repo is made to demonstrate The Core Basic theory Gang of four Design patterns in the Java programming language.
+Topics: This Repository is made to demonstrate The Core Basic theory Gang of four Design patterns in the Java programming language.
 This Projects was accomplished through the Java Design Patterns Courseon Udemy.
 	
 	1-Java Design Pattern Principles
@@ -44,8 +44,7 @@ This Projects was accomplished through the Java Design Patterns Courseon Udemy.
 		- Template Method
 		- Visitor
 	
-Author:
 
 source:https://www.udemy.com/course/java-design-patterns-course/
-author: Jason Fedin
-author:Tim Buchalka's Learn Programming Academy
+Reference: Jason Fedin
+Reference:Tim Buchalka's Learn Programming Academy
